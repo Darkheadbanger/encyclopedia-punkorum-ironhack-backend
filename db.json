@@ -1,0 +1,571 @@
+{
+  "bands": [
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440001",
+      "name": "Sex Pistols",
+      "country": "GB",
+      "location": "London",
+      "status": "Split-up",
+      "formed": "1975",
+      "disbanded": "1978",
+      "genre": [
+        "punk rock",
+        "proto-punk",
+        "punk rock"
+      ],
+      "disambiguation": "English punk rock band Legend",
+      "image": "https://i8.amplience.net/i/naras/gettyimages-592309028.jpg.jpg",
+      "albums": [
+        {
+          "title": "Neverr Mind the Bollocks, Here's the Sex Pistols",
+          "year": "1976",
+          "type": "Album"
+        }
+      ],
+      "members": [
+        {
+          "name": "Johnny Rotten",
+          "instrument": "vocals",
+          "period": "1975-1977"
+        },
+        {
+          "name": "Sid Vicious",
+          "instrument": "bass",
+          "period": "1977-1978"
+        }
+      ],
+      "source": "local",
+      "editable": true,
+      "type": "Group"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440002",
+      "name": "Ramones",
+      "country": "US",
+      "location": "New York",
+      "status": "Split-up",
+      "formed": "1974",
+      "disbanded": "1996",
+      "genre": [
+        "punk rock",
+        "pop punk"
+      ],
+      "disambiguation": "American punk rock band from Queens",
+      "image": null,
+      "albums": [
+        {
+          "title": "Ramones",
+          "year": "1976",
+          "type": "Album"
+        },
+        {
+          "title": "Rocket to Russia",
+          "year": "1977",
+          "type": "Album"
+        }
+      ],
+      "members": [
+        {
+          "name": "Joey Ramone",
+          "instrument": "vocals",
+          "period": "1974-1996"
+        },
+        {
+          "name": "Johnny Ramone",
+          "instrument": "guitar",
+          "period": "1974-1996"
+        },
+        {
+          "name": "Dee Dee Ramone",
+          "instrument": "bass",
+          "period": "1974-1989"
+        }
+      ]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440003",
+      "name": "The Clash",
+      "country": "GB",
+      "location": "London",
+      "status": "Split-up",
+      "formed": "1976",
+      "disbanded": "1986",
+      "genre": [
+        "punk rock",
+        "post-punk",
+        "new wave"
+      ],
+      "disambiguation": "English punk rock band",
+      "image": null,
+      "albums": [
+        {
+          "title": "The Clash",
+          "year": "1977",
+          "type": "Album"
+        },
+        {
+          "title": "London Calling",
+          "year": "1979",
+          "type": "Album"
+        },
+        {
+          "title": "Combat Rock",
+          "year": "1982",
+          "type": "Album"
+        }
+      ],
+      "members": [
+        {
+          "name": "Joe Strummer",
+          "instrument": "vocals, guitar",
+          "period": "1976-1986"
+        },
+        {
+          "name": "Mick Jones",
+          "instrument": "guitar",
+          "period": "1976-1983"
+        }
+      ]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440004",
+      "name": "Minor Threat",
+      "country": "US",
+      "location": "Washington, D.C.",
+      "status": "Split-up",
+      "formed": "1980",
+      "disbanded": "1983",
+      "genre": [
+        "hardcore punk",
+        "straight edge"
+      ],
+      "disambiguation": "American hardcore punk band",
+      "image": null,
+      "albums": [
+        {
+          "title": "Out of Step",
+          "year": "1983",
+          "type": "Album"
+        }
+      ],
+      "members": [
+        {
+          "name": "Ian MacKaye",
+          "instrument": "vocals",
+          "period": "1980-1983"
+        }
+      ]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440006",
+      "name": "Buzzcocks",
+      "country": "GB",
+      "location": "Manchester",
+      "status": "Active",
+      "formed": "1976",
+      "disbanded": null,
+      "genre": [
+        "punk rock",
+        "power pop"
+      ],
+      "disambiguation": "English punk rock band",
+      "image": null,
+      "albums": [
+        {
+          "title": "Another Music in a Different Kitchen",
+          "year": "1978",
+          "type": "Album"
+        }
+      ],
+      "members": [
+        {
+          "name": "Pete Shelley",
+          "instrument": "vocals, guitar",
+          "period": "1976-2018"
+        }
+      ]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440007",
+      "name": "Fugazi",
+      "country": "US",
+      "location": "Washington, D.C.",
+      "status": "On hiatus",
+      "formed": "1987",
+      "disbanded": null,
+      "genre": [
+        "post-hardcore",
+        "punk rock"
+      ],
+      "disambiguation": "American post-hardcore band",
+      "image": null,
+      "albums": [
+        {
+          "title": "Repeater",
+          "year": "1990",
+          "type": "Album"
+        },
+        {
+          "title": "13 Songs",
+          "year": "1989",
+          "type": "Compilation"
+        }
+      ],
+      "members": [
+        {
+          "name": "Ian MacKaye",
+          "instrument": "vocals, guitar",
+          "period": "1987-present"
+        },
+        {
+          "name": "Guy Picciotto",
+          "instrument": "vocals, guitar",
+          "period": "1987-present"
+        }
+      ]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440008",
+      "name": "Pennywise",
+      "country": "US",
+      "location": "Hermosa Beach, California",
+      "status": "Active",
+      "formed": "1988",
+      "disbanded": null,
+      "genre": [
+        "punk rock",
+        "skate punk",
+        "melodic hardcore"
+      ],
+      "disambiguation": "American punk rock band",
+      "image": null,
+      "albums": [
+        {
+          "title": "Pennywise",
+          "year": "1991",
+          "type": "Album"
+        },
+        {
+          "title": "About Time",
+          "year": "1995",
+          "type": "Album"
+        }
+      ],
+      "members": [
+        {
+          "name": "Jim Lindberg",
+          "instrument": "vocals",
+          "period": "1988-present"
+        }
+      ]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440009",
+      "name": "Rancid",
+      "country": "US",
+      "location": "Berkeley, California",
+      "status": "Active",
+      "formed": "1991",
+      "disbanded": null,
+      "genre": [
+        "punk rock",
+        "ska punk",
+        "street punk"
+      ],
+      "disambiguation": "American punk rock band",
+      "image": null,
+      "albums": [
+        {
+          "title": "Let's Go",
+          "year": "1994",
+          "type": "Album"
+        },
+        {
+          "title": "...And Out Come the Wolves",
+          "year": "1995",
+          "type": "Album"
+        }
+      ],
+      "members": [
+        {
+          "name": "Tim Armstrong",
+          "instrument": "vocals, guitar",
+          "period": "1991-present"
+        },
+        {
+          "name": "Lars Frederiksen",
+          "instrument": "guitar",
+          "period": "1993-present"
+        }
+      ]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440010",
+      "name": "Social Distortion",
+      "country": "US",
+      "location": "Fullerton, California",
+      "status": "Active",
+      "formed": "1978",
+      "disbanded": null,
+      "genre": [
+        "punk rock",
+        "cowpunk",
+        "hard rock"
+      ],
+      "disambiguation": "American punk rock band",
+      "image": null,
+      "albums": [
+        {
+          "title": "Mommy's Little Monster",
+          "year": "1983",
+          "type": "Album"
+        },
+        {
+          "title": "Social Distortion",
+          "year": "1990",
+          "type": "Album"
+        }
+      ],
+      "members": [
+        {
+          "name": "Mike Ness",
+          "instrument": "vocals, guitar",
+          "period": "1978-present"
+        }
+      ]
+    },
+    {
+      "id": "b05cbe3f-4a74-4abe-89cb-96dac791587a",
+      "name": "Lalala",
+      "country": "FR",
+      "location": "Pau",
+      "status": "Active",
+      "formed": "2016",
+      "disbanded": null,
+      "genre": [
+        "Punk 77"
+      ],
+      "type": "Group",
+      "disambiguation": "Imaginary punk rock band",
+      "image": null,
+      "albums": [
+        {
+          "title": "Lolo",
+          "year": "2026",
+          "type": "Album"
+        }
+      ],
+      "members": [
+        {
+          "name": "David Bouhaben",
+          "instrument": "All Instrument",
+          "period": "2026"
+        }
+      ],
+      "source": "local",
+      "editable": true
+    },
+    {
+      "id": "6805c7e3-5a06-4a0b-942c-0394f5695a68",
+      "name": "lolo",
+      "country": "US",
+      "location": "New York",
+      "status": "Active",
+      "formed": "2025",
+      "disbanded": "2026",
+      "genre": [
+        "Hardcore punk",
+        " emo"
+      ],
+      "type": "Group",
+      "disambiguation": "Awesome band",
+      "image": null,
+      "albums": [
+        {
+          "title": "El dorado del piero",
+          "year": "2025",
+          "type": "Album"
+        }
+      ],
+      "members": [
+        {
+          "name": "El masko",
+          "instrument": "All Instruments",
+          "period": "2025"
+        }
+      ],
+      "source": "local",
+      "editable": true
+    },
+    {
+      "id": "7d67815a-b172-4ee6-ab23-2d2bedbfa8db",
+      "name": "Ngelolo",
+      "country": "FR",
+      "location": "Toulouse",
+      "status": "On hiatus",
+      "formed": "2002",
+      "disbanded": "2020",
+      "genre": [
+        "Punk Rock",
+        " powerviolence"
+      ],
+      "type": "Group",
+      "disambiguation": "grer",
+      "image": null,
+      "albums": [
+        {
+          "title": "All death are the same",
+          "year": "2020",
+          "type": "EP"
+        }
+      ],
+      "members": [
+        {
+          "name": "Walling",
+          "instrument": "All Instrument",
+          "period": "2000 - 2010"
+        }
+      ],
+      "source": "local",
+      "editable": true
+    },
+    {
+      "id": "57c6e15c-1dd3-40c8-a69b-4d4705c1f752",
+      "name": "David ",
+      "country": "FR",
+      "location": "Pau",
+      "status": "Active",
+      "formed": "1995",
+      "disbanded": null,
+      "genre": [
+        "Punkero"
+      ],
+      "type": "Group",
+      "disambiguation": "Indo France punk",
+      "image": null,
+      "albums": [
+        {
+          "title": "Dedede",
+          "year": "2021",
+          "type": "Album"
+        }
+      ],
+      "members": [
+        {
+          "name": "David bouhaben",
+          "instrument": "All instruments",
+          "period": "2025"
+        }
+      ],
+      "source": "local",
+      "editable": true
+    },
+    {
+      "id": "61f15d3c-fc14-406c-ab9d-fd69b8a4e547",
+      "name": "Beer Two",
+      "country": "US",
+      "location": "New York",
+      "status": "Split-up",
+      "formed": "1995",
+      "disbanded": "2026",
+      "genre": [
+        "Hardcore punk",
+        "  emo"
+      ],
+      "type": "Group",
+      "disambiguation": "English punk rock band Legend",
+      "image": null,
+      "albums": [
+        {
+          "title": "adda",
+          "year": "2018",
+          "type": "Album"
+        },
+        {
+          "title": "dezed",
+          "year": "2020",
+          "type": "EP"
+        }
+      ],
+      "members": [
+        {
+          "name": "feef",
+          "instrument": "All Instruments",
+          "period": "1995-2002"
+        }
+      ],
+      "source": "local",
+      "editable": true
+    },
+    {
+      "id": "f122a3b9-80e9-4231-9eed-e0e2cde8ecd8",
+      "name": "DADAO",
+      "country": "FR",
+      "location": "Pau",
+      "status": "Active",
+      "formed": "1995",
+      "disbanded": "2026",
+      "genre": [
+        "Punk Rock",
+        "  powerviolence"
+      ],
+      "type": "Group",
+      "disambiguation": "English punk rock band Legend",
+      "image": null,
+      "albums": [
+        {
+          "title": "DADA",
+          "year": "2005",
+          "type": "Album"
+        }
+      ],
+      "members": [
+        {
+          "name": "DADA",
+          "instrument": "Guitar",
+          "period": "1995-2026"
+        }
+      ],
+      "source": "local",
+      "editable": true
+    },
+    {
+      "id": "0fe1786a-3c81-4241-9960-21aacf793e70",
+      "name": "Beer Tworeg",
+      "country": "FRre",
+      "location": "Paufe",
+      "status": "Active",
+      "formed": "1993",
+      "disbanded": "2025",
+      "genre": [
+        "Punk Rock",
+        "  powerviolence",
+        " punk"
+      ],
+      "type": "Group",
+      "disambiguation": "deddebdf",
+      "image": null,
+      "albums": [
+        {
+          "title": "fethe",
+          "year": "2017",
+          "type": "EP"
+        },
+        {
+          "title": "gtrhtr",
+          "year": "2015",
+          "type": "Album"
+        }
+      ],
+      "members": [
+        {
+          "name": "gterfe",
+          "instrument": "all instumrents",
+          "period": "2021"
+        }
+      ],
+      "source": "local",
+      "editable": true
+    }
+  ]
+}
