@@ -1,141 +1,55 @@
-// Encyclopedia Punkorum — the Express application.
+// Encyclopedia Punkorum — l'application Express.
 //
-// This file builds the app but never starts it: server.js starts it for real, and the
-// tests import it directly. That is the only reason the two are separate files.
+// Ce fichier construit l'app mais ne la démarre jamais : server.js s'en charge, et
+// les tests l'importent directement. C'est la seule raison de ce découpage.
 
 import express from "express";
 import cors from "cors";
+import mongoose from "mongoose";
 import rateLimit from "express-rate-limit";
-import { readFile, writeFile, rename } from "node:fs/promises";
-import { randomUUID } from "node:crypto";
+import Band from "./models/Band.model.js";
 
-const DEFAULT_DB_FILE = new URL("./db.json", import.meta.url);
 const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
 const MUSICBRAINZ_URL = "https://musicbrainz.org/ws/2";
 
-// MusicBrainz asks for a way to contact the app owner. We keep NO personal data in the
-// code: set MB_USER_AGENT in the environment to add a contact.
+// MusicBrainz demande un moyen de contacter le propriétaire de l'app. On ne met
+// AUCUNE donnée personnelle dans le code : MB_USER_AGENT se règle dans le .env.
 const USER_AGENT = process.env.MB_USER_AGENT
   || "EncyclopediaPunkorum/1.0 (student project)";
 
-// MusicBrainz allows about one request per second and answers 503 above that.
-// Caching the answers for a few minutes keeps us well under the limit — the punk bands
-// of the 1970s do not change very often.
+// MusicBrainz autorise environ une requête par seconde et répond 503 au-delà.
+// Garder les réponses quelques minutes nous laisse loin de la limite — les groupes
+// de punk des années 70 ne changent pas très souvent.
 const CACHE_TTL_MS = 5 * 60 * 1000;
 
-export function createApp({ dbFile = DEFAULT_DB_FILE, fetchImpl = fetch } = {}) {
+export function createApp({ fetchImpl = fetch } = {}) {
   const app = express();
 
-  // Only our own front end may call this API. With cors() and no options, ANY website
-  // could read it from a visitor's browser.
+  // Seul notre frontend peut appeler cette API. Avec cors() sans options,
+  // N'IMPORTE quel site pourrait la lire depuis le navigateur d'un visiteur.
   app.use(cors({ origin: FRONTEND_URL }));
-  app.use(express.json({ limit: "100kb" })); // a band is small; refuse huge payloads
+  app.use(express.json({ limit: "100kb" })); // un groupe est petit
 
-  // A crude safety net against a script hammering the API.
+  // Un garde-fou contre un script qui martèlerait l'API.
   app.use(rateLimit({
     windowMs: 60 * 1000,
     limit: 100,
     standardHeaders: true,
     legacyHeaders: false,
-    message: { error: "Too many requests, please slow down." },
+    message: { error: "Trop de requêtes, merci de ralentir." },
   }));
 
-  // --- Data access ---------------------------------------------------------
-  // The "database" is a JSON file.
-
-  const readBands = async () => {
-    const content = await readFile(dbFile, "utf8");
-    return JSON.parse(content).bands;
-  };
-
-  const saveBands = async (bands) => {
-    // Write to a temporary file first, then rename: a crash mid-write cannot leave
-    // db.json truncated. rename() is atomic on the same filesystem.
-    const temporaryFile = new URL(`${dbFile.pathname.split("/").pop()}.tmp`, dbFile);
-    await writeFile(temporaryFile, JSON.stringify({ bands }, null, 2));
-    await rename(temporaryFile, dbFile);
-  };
-
-  // Every change goes through here, one at a time.
+  // --- Routes : /bands -----------------------------------------------------
   //
-  // Queueing only the write is NOT enough: two requests arriving together would both
-  // read the same old file, each add its own band to that stale list, and the second
-  // write would erase the first band. So the whole read-modify-write runs inside the
-  // queue. (A real database does this for us with a transaction.)
-  let queue = Promise.resolve();
-  const updateBands = (change) => {
-    const result = queue.then(async () => {
-      const bands = await readBands();
-      const outcome = await change(bands);
-      if (outcome.save !== false) await saveBands(outcome.bands);
-      return outcome;
-    });
-    // Keep the queue alive even if this change failed, so one error does not block
-    // every later request.
-    queue = result.catch(() => {});
-    return result;
-  };
-
-  // --- Validation ----------------------------------------------------------
-  // This is what json-server was missing. Kept as one readable function on purpose:
-  // a validation library would be one more thing to explain for very little gain.
-
-  const MAX_NAME = 200;
-  const MAX_TEXT = 500;
-  const MAX_LIST = 100;
-  const MAX_DESCRIPTION = 20000; // the band history, several paragraphs
-
-  const validateBand = (band) => {
-    if (!band || typeof band !== "object" || Array.isArray(band)) {
-      return "A band must be an object.";
-    }
-    if (typeof band.name !== "string" || !band.name.trim()) {
-      return "A band needs a name.";
-    }
-    if (band.name.length > MAX_NAME) {
-      return `The name must be under ${MAX_NAME} characters.`;
-    }
-    for (const field of ["country", "location", "status", "disambiguation", "themes", "label"]) {
-      if (band[field] != null && typeof band[field] !== "string") {
-        return `"${field}" must be text.`;
-      }
-      if (typeof band[field] === "string" && band[field].length > MAX_TEXT) {
-        return `"${field}" must be under ${MAX_TEXT} characters.`;
-      }
-    }
-    // The band history is a long text, so it gets its own, larger limit.
-    if (band.description != null && typeof band.description !== "string") {
-      return `"description" must be text.`;
-    }
-    if (typeof band.description === "string" && band.description.length > MAX_DESCRIPTION) {
-      return `"description" must be under ${MAX_DESCRIPTION} characters.`;
-    }
-    for (const field of ["formed", "disbanded"]) {
-      const year = band[field];
-      if (year == null || year === "") continue;
-      if (!/^\d{4}$/.test(String(year))) {
-        return `"${field}" must be a 4-digit year.`;
-      }
-      if (Number(year) < 1900 || Number(year) > new Date().getFullYear() + 1) {
-        return `"${field}" is not a plausible year.`;
-      }
-    }
-    for (const field of ["genre", "albums", "members"]) {
-      if (band[field] != null && !Array.isArray(band[field])) {
-        return `"${field}" must be a list.`;
-      }
-      if (Array.isArray(band[field]) && band[field].length > MAX_LIST) {
-        return `"${field}" cannot hold more than ${MAX_LIST} entries.`;
-      }
-    }
-    return null;
-  };
-
-  // --- Routes: /bands ------------------------------------------------------
+  // Plus de lecture/écriture de fichier, plus de file d'attente maison : MongoDB
+  // gère lui-même les écritures concurrentes. Chaque route tient en trois lignes.
 
   app.get("/bands", async (req, res, next) => {
     try {
-      res.json(await readBands());
+      // Les plus récents d'abord, comme avant.
+      // _id départage les groupes créés dans la même milliseconde : sans lui,
+      // l'ordre de deux créations simultanées serait arbitraire.
+      res.json(await Band.find().sort({ createdAt: -1, _id: -1 }));
     } catch (error) {
       next(error);
     }
@@ -143,8 +57,8 @@ export function createApp({ dbFile = DEFAULT_DB_FILE, fetchImpl = fetch } = {}) 
 
   app.get("/bands/:id", async (req, res, next) => {
     try {
-      const band = (await readBands()).find((b) => b.id === req.params.id);
-      if (!band) return res.status(404).json({ error: "Band not found." });
+      const band = await Band.findById(req.params.id);
+      if (!band) return res.status(404).json({ error: "Groupe introuvable." });
       res.json(band);
     } catch (error) {
       next(error);
@@ -153,13 +67,9 @@ export function createApp({ dbFile = DEFAULT_DB_FILE, fetchImpl = fetch } = {}) 
 
   app.post("/bands", async (req, res, next) => {
     try {
-      const error = validateBand(req.body);
-      if (error) return res.status(400).json({ error });
-
-      // The server owns the id, never the client.
-      const newBand = { ...req.body, id: randomUUID() };
-      await updateBands((bands) => ({ bands: [newBand, ...bands] }));
-      res.status(201).json(newBand);
+      // Le serveur possède l'id, jamais le client : on retire celui du body.
+      const { id, _id, ...donnees } = req.body ?? {};
+      res.status(201).json(await Band.create(donnees));
     } catch (error) {
       next(error);
     }
@@ -167,22 +77,13 @@ export function createApp({ dbFile = DEFAULT_DB_FILE, fetchImpl = fetch } = {}) 
 
   app.put("/bands/:id", async (req, res, next) => {
     try {
-      const error = validateBand(req.body);
-      if (error) return res.status(400).json({ error });
-
-      // Keep the original id: the URL decides which band this is, not the body.
-      const updatedBand = { ...req.body, id: req.params.id };
-      const { found } = await updateBands((bands) => {
-        const index = bands.findIndex((b) => b.id === req.params.id);
-        if (index === -1) return { bands, save: false, found: false };
-        return {
-          bands: bands.map((b, i) => (i === index ? updatedBand : b)),
-          found: true,
-        };
+      const { id, _id, ...donnees } = req.body ?? {};
+      const band = await Band.findByIdAndUpdate(req.params.id, donnees, {
+        new: true,          // renvoyer le document APRÈS modification
+        runValidators: true, // sinon Mongoose ne valide qu'à la création
       });
-
-      if (!found) return res.status(404).json({ error: "Band not found." });
-      res.json(updatedBand);
+      if (!band) return res.status(404).json({ error: "Groupe introuvable." });
+      res.json(band);
     } catch (error) {
       next(error);
     }
@@ -190,24 +91,17 @@ export function createApp({ dbFile = DEFAULT_DB_FILE, fetchImpl = fetch } = {}) 
 
   app.delete("/bands/:id", async (req, res, next) => {
     try {
-      const { found } = await updateBands((bands) => {
-        const remaining = bands.filter((b) => b.id !== req.params.id);
-        if (remaining.length === bands.length) {
-          return { bands, save: false, found: false };
-        }
-        return { bands: remaining, found: true };
-      });
-
-      if (!found) return res.status(404).json({ error: "Band not found." });
+      const band = await Band.findByIdAndDelete(req.params.id);
+      if (!band) return res.status(404).json({ error: "Groupe introuvable." });
       res.status(204).end();
     } catch (error) {
       next(error);
     }
   });
 
-  // --- Route: MusicBrainz proxy --------------------------------------------
-  // A browser refuses to set the User-Agent header MusicBrainz requires
-  // (it is a forbidden header name). A server does not.
+  // --- Route : proxy MusicBrainz -------------------------------------------
+  // Un navigateur refuse d'envoyer l'en-tête User-Agent exigé par MusicBrainz
+  // (c'est un "forbidden header name"). Un serveur, lui, le peut.
 
   const cache = new Map(); // url -> { expiresAt, body }
 
@@ -226,13 +120,13 @@ export function createApp({ dbFile = DEFAULT_DB_FILE, fetchImpl = fetch } = {}) 
       const response = await fetchImpl(url, { headers: { "User-Agent": USER_AGENT } });
 
       if (!response.ok) {
-        // 503 usually means we went over the rate limit. Serving a stale answer is far
-        // better than showing the user nothing.
+        // Un 503 signifie en général qu'on a dépassé la limite. Servir une réponse
+        // périmée vaut bien mieux que de ne rien montrer à l'utilisateur.
         if (cached) {
           res.set("X-Cache", "STALE");
           return res.json(cached.body);
         }
-        return res.status(response.status).json({ error: "MusicBrainz request failed." });
+        return res.status(response.status).json({ error: "La requête MusicBrainz a échoué." });
       }
 
       const body = await response.json();
@@ -244,22 +138,44 @@ export function createApp({ dbFile = DEFAULT_DB_FILE, fetchImpl = fetch } = {}) 
     }
   });
 
-  // --- Error handling ------------------------------------------------------
+  // --- Gestion centralisée des erreurs -------------------------------------
+  // Aucune route ne construit elle-même une réponse d'erreur technique : elles
+  // appellent next(error) et TOUT arrive ici. Un seul endroit à lire pour savoir
+  // ce que l'API renvoie quand ça se passe mal.
 
   app.use((req, res) => {
-    res.status(404).json({ error: "Unknown endpoint." });
+    res.status(404).json({ error: "Endpoint inconnu." });
   });
 
   app.use((error, req, res, next) => {
-    // A body express.json() could not parse is the client's mistake, not a server crash
+    // Un document refusé par le schéma Mongoose : c'est une erreur du client.
+    // On renvoie le premier message de validation, lisible tel quel par le formulaire.
+    if (error instanceof mongoose.Error.ValidationError) {
+      const premier = Object.values(error.errors)[0];
+      return res.status(400).json({ error: premier.message });
+    }
+
+    // Une conversion refusée. Deux cas très différents :
+    //  - sur _id : l'URL contient un id qui n'est pas un ObjectId (/bands/bonjour).
+    //    Ce n'est pas un crash, c'est juste un groupe qui n'existe pas.
+    //  - sur un autre champ : le client a envoyé { name: 42 }. C'est une erreur 400.
+    if (error instanceof mongoose.Error.CastError) {
+      if (error.path === "_id") {
+        return res.status(404).json({ error: "Groupe introuvable." });
+      }
+      return res.status(400).json({ error: `"${error.path}" n'est pas du bon type.` });
+    }
+
+    // Un body que express.json() n'a pas su lire : faute du client, pas du serveur.
     if (error.type === "entity.parse.failed") {
-      return res.status(400).json({ error: "The request body is not valid JSON." });
+      return res.status(400).json({ error: "Le corps de la requête n'est pas du JSON valide." });
     }
     if (error.type === "entity.too.large") {
-      return res.status(413).json({ error: "The request body is too large." });
+      return res.status(413).json({ error: "Le corps de la requête est trop volumineux." });
     }
+
     console.error(error);
-    res.status(500).json({ error: "Something went wrong on the server." });
+    res.status(500).json({ error: "Une erreur est survenue sur le serveur." });
   });
 
   return app;
