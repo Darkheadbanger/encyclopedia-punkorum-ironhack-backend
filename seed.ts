@@ -6,15 +6,16 @@
 
 import "dotenv/config";
 import { readFile } from "node:fs/promises";
-import { connectToDatabase, disconnectFromDatabase } from "./db/index.js";
-import Band from "./models/Band.model.js";
+import { connectToDatabase, disconnectFromDatabase } from "./db/index.ts";
+import Band from "./models/Band.model.ts";
+import type { BandFromJsonFile } from "./types/index.ts";
 
 const fichier = new URL("./db.json", import.meta.url);
 
 async function seed() {
   await connectToDatabase();
 
-  const { bands } = JSON.parse(await readFile(fichier, "utf8"));
+  const { bands }: { bands: BandFromJsonFile[] } = JSON.parse(await readFile(fichier, "utf8"));
 
   // "id", "source" et "editable" appartiennent au frontend, pas à la base.
   const aInserer = bands.map(({ id, source, editable, ...groupe }) => groupe);
@@ -28,8 +29,8 @@ async function seed() {
   await disconnectFromDatabase();
 }
 
-seed().catch(async (erreur) => {
-  console.error("Le seed a échoué :", erreur.message);
+seed().catch(async (erreur: unknown) => {
+  console.error("Le seed a échoué :", erreur instanceof Error ? erreur.message : erreur);
   await disconnectFromDatabase();
   process.exit(1);
 });

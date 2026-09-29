@@ -1,6 +1,6 @@
 // La connexion à MongoDB.
 //
-// Un seul endroit se connecte à la base : server.js appelle connectToDatabase()
+// Un seul endroit se connecte à la base : server.ts appelle connectToDatabase()
 // AVANT d'ouvrir le port. Si la base ne répond pas, le serveur ne démarre pas du
 // tout — c'est voulu. Mieux vaut un serveur qui refuse de démarrer qu'un serveur
 // qui accepte des requêtes et renvoie une erreur 500 à chacune.

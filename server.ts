@@ -1,12 +1,12 @@
-// Démarre l'application Express pour de vrai. Tout le reste vit dans app.js, que
+// Démarre l'application Express pour de vrai. Tout le reste vit dans app.ts, que
 // les tests importent sans jamais ouvrir de port.
 //
 // L'ordre des imports compte : "dotenv/config" doit s'exécuter EN PREMIER, car
-// app.js lit process.env dès son chargement.
+// app.ts lit process.env dès son chargement.
 
 import "dotenv/config";
-import { createApp } from "./app.js";
-import { connectToDatabase } from "./db/index.js";
+import { createApp } from "./app.ts";
+import { connectToDatabase } from "./db/index.ts";
 
 const PORT = process.env.PORT || 3001;
 
@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3001;
 try {
   await connectToDatabase();
 } catch (erreur) {
-  console.error("Impossible de se connecter à MongoDB :", erreur.message);
+  console.error("Impossible de se connecter à MongoDB :", erreur instanceof Error ? erreur.message : erreur);
   process.exit(1);
 }
 
