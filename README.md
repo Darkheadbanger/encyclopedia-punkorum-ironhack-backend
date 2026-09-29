@@ -15,18 +15,26 @@ Replaces json-server, which could not do two things this project needs:
 npm install
 npm start        # http://localhost:3001
 npm run dev      # same, restarts on file changes
-npm run test:run # 25 tests, no network and no real db.json touched
+npm run test:run # Vitest + supertest
+npm run typecheck # tsc: checks types, emits nothing
 ```
 
 Then start the front end (`npm run dev` in the other repo, port 5173).
+
+## TypeScript
+
+Node (>= 22.18) runs the `.ts` files directly by stripping the types: there is no build
+step and no `dist/` folder. `tsc` only checks the types (`npm run typecheck`). Because
+Node strips types without compiling, only erasable syntax is allowed (no `enum`, no
+`namespace`), and imports keep their `.ts` extension.
 
 ## Files
 
 | File | Role |
 |---|---|
-| `app.js` | The whole API. `createApp()` builds it but never starts it |
-| `server.js` | Starts it, and shuts down cleanly on `SIGTERM`/`SIGINT` |
-| `app.test.js` | 25 tests (Vitest + supertest) against a throwaway database |
+| `app.ts` | The whole API. `createApp()` builds it but never starts it |
+| `server.ts` | Starts it, and shuts down cleanly on `SIGTERM`/`SIGINT` |
+| `app.test.ts` | 25 tests (Vitest + supertest) against a throwaway database |
 
 They are split only so the tests can import the app without opening a port.
 
