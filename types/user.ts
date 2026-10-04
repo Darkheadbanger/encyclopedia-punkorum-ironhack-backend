@@ -1,16 +1,16 @@
-// Les types d'un compte utilisateur.
+// The types of a user account.
 
 export interface User {
   email: string;
-  password: string; // toujours le hash bcrypt, jamais le mot de passe en clair
+  password: string; // always the bcrypt hash, never the plaintext password
   username: string;
 }
 
-// Ce qu'un client a le droit de voir d'un compte : tout sauf le mot de passe.
+// What a client is allowed to see of an account: everything but the password.
 export type PublicUser = Omit<User, "password"> & { id: string };
 
-// Ce que le JWT transporte. Un JWT n'est pas chiffré : n'importe qui peut lire
-// son contenu. Donc rien de sensible ici, jamais le mot de passe.
+// What the JWT carries. A JWT is not encrypted: anyone can read its contents. So
+// nothing sensitive goes in here, and never the password.
 export interface TokenPayload {
   id: string;
   email: string;

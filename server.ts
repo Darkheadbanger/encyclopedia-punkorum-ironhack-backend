@@ -1,8 +1,8 @@
-// Démarre l'application Express pour de vrai. Tout le reste vit dans app.ts, que
-// les tests importent sans jamais ouvrir de port.
+// Starts the Express application for real. Everything else lives in app.ts, which
+// the tests import without ever opening a port.
 //
-// L'ordre des imports compte : "dotenv/config" doit s'exécuter EN PREMIER, car
-// app.ts lit process.env dès son chargement.
+// Import order matters: "dotenv/config" must run FIRST, because app.ts reads
+// process.env as soon as it is loaded.
 
 import "dotenv/config";
 import { createApp } from "./app.ts";
@@ -10,28 +10,28 @@ import { connectToDatabase } from "./db/index.ts";
 
 const PORT = process.env.PORT || 3001;
 
-// On se connecte à MongoDB AVANT d'ouvrir le port. Si la base ne répond pas, le
-// serveur ne démarre pas : mieux vaut un démarrage qui échoue franchement qu'une
-// API qui accepte les requêtes pour renvoyer une erreur 500 à chacune.
+// Connect to MongoDB BEFORE opening the port. If the database does not answer the
+// server does not start: a startup that fails loudly beats an API that accepts
+// requests only to answer 500 to every one of them.
 try {
   await connectToDatabase();
-} catch (erreur) {
-  console.error("Impossible de se connecter à MongoDB :", erreur instanceof Error ? erreur.message : erreur);
+} catch (error) {
+  console.error("Could not connect to MongoDB:", error instanceof Error ? error.message : error);
   process.exit(1);
 }
 
 const app = createApp();
 
 const server = app.listen(PORT, () => {
-  console.log(`API Encyclopedia Punkorum sur http://localhost:${PORT}`);
+  console.log(`Encyclopedia Punkorum API on http://localhost:${PORT}`);
 });
 
-// Render (et Docker, et Ctrl+C) envoient SIGTERM/SIGINT puis tuent le processus
-// quelques secondes plus tard. Fermer le serveur d'abord laisse les requêtes en
-// cours se terminer au lieu d'être coupées en plein vol.
+// Render (and Docker, and Ctrl+C) send SIGTERM/SIGINT, then kill the process a few
+// seconds later. Closing the server first lets in-flight requests finish instead of
+// being cut off mid-air.
 for (const signal of ["SIGTERM", "SIGINT"]) {
   process.on(signal, () => {
-    console.log(`${signal} reçu, arrêt en cours.`);
+    console.log(`${signal} received, shutting down.`);
     server.close(() => process.exit(0));
   });
 }

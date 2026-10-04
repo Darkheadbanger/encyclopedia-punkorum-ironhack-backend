@@ -1,8 +1,7 @@
-// Transfère les groupes de db.json vers MongoDB. À lancer UNE fois : npm run seed
+// Moves the bands from db.json into MongoDB. Run it with: npm run seed
 //
-// Le script vide d'abord la collection, pour qu'un deuxième lancement ne crée pas
-// 16 doublons. Les anciens id (des UUID) sont abandonnés : Mongo génère ses propres
-// _id, et le frontend ne connaît de toute façon que les id renvoyés par l'API.
+// The script empties the collection first, so running it twice does not create
+// duplicates. db.json is the source data, not a database: the API never reads it.
 
 import "dotenv/config";
 import { readFile } from "node:fs/promises";
@@ -10,27 +9,27 @@ import { connectToDatabase, disconnectFromDatabase } from "./db/index.ts";
 import Band from "./models/Band.model.ts";
 import type { BandFromJsonFile } from "./types/index.ts";
 
-const fichier = new URL("./db.json", import.meta.url);
+const file = new URL("./db.json", import.meta.url);
 
 async function seed() {
   await connectToDatabase();
 
-  const { bands }: { bands: BandFromJsonFile[] } = JSON.parse(await readFile(fichier, "utf8"));
+  const { bands }: { bands: BandFromJsonFile[] } = JSON.parse(await readFile(file, "utf8"));
 
-  // "id", "source" et "editable" appartiennent au frontend, pas à la base.
-  const aInserer = bands.map(({ id, source, editable, ...groupe }) => groupe);
+  // "id", "source" and "editable" belong to the frontend, not to the database.
+  const toInsert = bands.map(({ id, source, editable, ...band }) => band);
 
-  const supprimes = await Band.deleteMany({});
-  console.log(`${supprimes.deletedCount} groupe(s) supprimé(s).`);
+  const deleted = await Band.deleteMany({});
+  console.log(`${deleted.deletedCount} band(s) deleted.`);
 
-  const crees = await Band.insertMany(aInserer);
-  console.log(`${crees.length} groupe(s) importé(s) dans MongoDB.`);
+  const created = await Band.insertMany(toInsert);
+  console.log(`${created.length} band(s) imported into MongoDB.`);
 
   await disconnectFromDatabase();
 }
 
-seed().catch(async (erreur: unknown) => {
-  console.error("Le seed a échoué :", erreur instanceof Error ? erreur.message : erreur);
+seed().catch(async (error: unknown) => {
+  console.error("The seed failed:", error instanceof Error ? error.message : error);
   await disconnectFromDatabase();
   process.exit(1);
 });
