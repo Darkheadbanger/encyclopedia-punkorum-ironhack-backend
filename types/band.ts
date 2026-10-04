@@ -1,5 +1,5 @@
-// Les types d'un groupe de punk. Le schéma Mongoose (models/Band.model.ts) s'appuie
-// sur ces interfaces : si un champ change ici, tsc signale le schéma qui ne suit pas.
+// The types of a punk band. The Mongoose schema (models/Band.model.ts) builds on
+// these interfaces: if a field changes here, tsc flags the schema that did not follow.
 
 export interface Album {
   title: string;
@@ -14,8 +14,16 @@ export interface Member {
   otherBands?: string[];
 }
 
+/** Where a band's data came from. It is a credit, not a permission: both are
+ *  editable and deletable through the API. */
+export type BandSource = "manual" | "musicbrainz";
+
 export interface Band {
   name: string;
+  source: BandSource;
+  /** Set only on an ingested band. Absent — not null — on a manual one, because a
+   *  unique index treats null as a value and two nulls would collide. */
+  musicBrainzId?: string;
   country: string;
   location: string;
   status: string;
@@ -32,10 +40,10 @@ export interface Band {
   label: string;
 }
 
-// Un groupe tel qu'il est écrit dans db.json. "id", "source" et "editable"
-// appartiennent au frontend ; seed.ts les retire avant l'insertion.
+// A band as written in db.json — hand-written data, so it carries no provenance:
+// the schema defaults it to "manual". "id" and "editable" are leftovers from the
+// frontend's old shape; seed.ts strips them, along with "source", before inserting.
 export interface BandFromJsonFile extends Partial<Band> {
   id?: string;
-  source?: string;
   editable?: boolean;
 }

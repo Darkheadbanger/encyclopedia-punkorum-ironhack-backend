@@ -1,24 +1,16 @@
-// Les types propres à l'API Express : options, réponses d'erreur, cache MusicBrainz.
+// Types that belong to the Express API: options, error responses, MusicBrainz cache.
 
 export interface CreateAppOptions {
-  // Remplaçable dans les tests, pour ne jamais appeler le vrai MusicBrainz.
+  // Replaceable in the tests, so the real MusicBrainz is never called.
   fetchImpl?: typeof fetch;
-  // Pause avant de retenter un appel MusicBrainz limité. Les tests la mettent à 0.
+  // Pause before retrying a rate-limited MusicBrainz call. The tests set it to 0.
   retryDelayMs?: number;
 }
 
-// Toute réponse d'erreur de l'API a cette forme.
+// Every error response of this API has this shape.
 export interface ApiError {
   error: string;
 }
 
-// Valeur de l'en-tête X-Cache renvoyé par le proxy MusicBrainz.
-export type CacheStatus = "HIT" | "MISS" | "STALE";
-
-export interface CacheEntry {
-  expiresAt: number; // timestamp en millisecondes
-  body: unknown;
-}
-
-// Les erreurs levées par express.json() que l'on traduit en erreur client.
+// The errors thrown by express.json() that we turn into client errors.
 export type BodyParserErrorType = "entity.parse.failed" | "entity.too.large";

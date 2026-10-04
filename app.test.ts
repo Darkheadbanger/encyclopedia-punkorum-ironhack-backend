@@ -86,6 +86,22 @@ describe("GET /bands/:id", () => {
 });
 
 describe("POST /bands", () => {
+  // Provenance belongs to the server. If a client could claim "musicbrainz" and
+  // pick an id, it could also collide with a real ingested band.
+  it("marks a band created through the API as manual, whatever the client claims", async () => {
+    const response = await asEditor(
+      request(app()).post("/bands").send({
+        name: "Crass",
+        source: "musicbrainz",
+        musicBrainzId: "7a2e6b55-f149-4e74-be6a-30a1b1a3e5ae",
+      })
+    );
+
+    expect(response.status).toBe(201);
+    expect(response.body.source).toBe("manual");
+    expect(response.body.musicBrainzId).toBeUndefined();
+  });
+
   it("creates a band and generates the id itself", async () => {
     const response = await asEditor(
       request(app()).post("/bands").send({ name: "Crass", country: "GB", id: "id-chosen-by-the-client" })
@@ -191,6 +207,22 @@ describe("PUT /bands/:id", () => {
     const response = await asEditor(request(app()).put(`/bands/${seeded.id}`).send({ name: "" }));
     expect(response.status).toBe(400);
   });
+
+  // An edit must not be able to rewrite history: a band ingested from MusicBrainz
+  // stays ingested, and a manual one cannot pretend it was.
+  it("never lets an edit change the provenance", async () => {
+    const response = await asEditor(
+      request(app()).put(`/bands/${seeded.id}`).send({
+        name: "The Sex Pistols",
+        source: "musicbrainz",
+        musicBrainzId: "7a2e6b55-f149-4e74-be6a-30a1b1a3e5ae",
+      })
+    );
+
+    expect(response.status).toBe(200);
+    expect(response.body.source).toBe("manual");
+    expect(response.body.musicBrainzId).toBeUndefined();
+  });
 });
 
 describe("DELETE /bands/:id", () => {
@@ -238,96 +270,6 @@ describe("unexpected errors reach the central handler", () => {
     expect(response.status).toBe(500);
     expect(response.body.error).toBe("Something went wrong on the server.");
     expect(response.text).not.toContain("database is down"); // no leak
-  });
-});
-
-describe("GET /api/mb/*", () => {
-  it("forwards to MusicBrainz with a User-Agent header", async () => {
-    const response = await request(app()).get("/api/mb/artist?query=ramones&fmt=json");
-
-    expect(response.status).toBe(200);
-    expect(response.body).toEqual(musicBrainzAnswer);
-
-    const [url, options] = fetchImpl.mock.calls[0];
-    expect(url).toContain("https://musicbrainz.org/ws/2/artist");
-    expect(url).toContain("query=ramones");
-    expect((options?.headers as Record<string, string>)["User-Agent"]).toContain("EncyclopediaPunkorum");
-  });
-
-  it("serves the second identical call from the cache", async () => {
-    const server = app(); // same instance, so the two calls share one cache
-    const one = await request(server).get("/api/mb/artist?query=ramones");
-    const two = await request(server).get("/api/mb/artist?query=ramones");
-
-    expect(one.headers["x-cache"]).toBe("MISS");
-    expect(two.headers["x-cache"]).toBe("HIT");
-    expect(fetchImpl).toHaveBeenCalledTimes(1); // MusicBrainz was called only once
-  });
-
-  it("answers 503 when MusicBrainz rate-limits us and nothing is cached", async () => {
-    const server = app();
-    fetchImpl.mockResolvedValue({ ok: false, status: 503, json: async () => ({}) } as Response);
-
-    const rateLimited = await request(server).get("/api/mb/artist?query=crass");
-    expect(rateLimited.status).toBe(503);
-    expect(rateLimited.body.error).toBe("MusicBrainz request failed.");
-  });
-
-  it("serves the stale answer when MusicBrainz fails after a successful call", async () => {
-    const server = app();
-    await request(server).get("/api/mb/artist?query=ramones"); // fills the cache
-
-    vi.setSystemTime(Date.now() + 6 * 60 * 1000); // past the 5-minute TTL
-    fetchImpl.mockResolvedValue({ ok: false, status: 503, json: async () => ({}) } as Response);
-
-    const stale = await request(server).get("/api/mb/artist?query=ramones");
-    expect(stale.headers["x-cache"]).toBe("STALE");
-    expect(stale.body).toEqual(musicBrainzAnswer);
-    vi.useRealTimers();
-  });
-});
-
-// MusicBrainz allows about one request per second and answers 503 above that.
-// One retry turns the most common failure into a non-event for the visitor.
-describe("GET /api/mb/* retries a rate-limited call", () => {
-  const rateLimited = { ok: false, status: 503, json: async () => ({}) } as Response;
-  const answered = { ok: true, json: async () => musicBrainzAnswer } as Response;
-
-  it("retries once and serves the answer", async () => {
-    fetchImpl.mockResolvedValueOnce(rateLimited).mockResolvedValueOnce(answered);
-
-    const response = await request(app()).get("/api/mb/artist?query=crass");
-
-    expect(response.status).toBe(200);
-    expect(response.body).toEqual(musicBrainzAnswer);
-    expect(fetchImpl).toHaveBeenCalledTimes(2);
-  });
-
-  it("waits before retrying instead of hammering MusicBrainz", async () => {
-    fetchImpl.mockResolvedValueOnce(rateLimited).mockResolvedValueOnce(answered);
-    const started = Date.now();
-
-    await request(app({ retryDelayMs: 60 })).get("/api/mb/artist?query=crass");
-
-    expect(Date.now() - started).toBeGreaterThanOrEqual(55);
-  });
-
-  it("gives up after a second 503", async () => {
-    fetchImpl.mockResolvedValue(rateLimited);
-
-    const response = await request(app()).get("/api/mb/artist?query=crass");
-
-    expect(response.status).toBe(503);
-    expect(fetchImpl).toHaveBeenCalledTimes(2); // one retry, not an endless loop
-  });
-
-  it("does not retry an error that will not fix itself", async () => {
-    fetchImpl.mockResolvedValue({ ok: false, status: 404, json: async () => ({}) } as Response);
-
-    const response = await request(app()).get("/api/mb/artist?query=nothing");
-
-    expect(response.status).toBe(404);
-    expect(fetchImpl).toHaveBeenCalledTimes(1); // retrying a 404 changes nothing
   });
 });
 

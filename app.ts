@@ -8,31 +8,20 @@ import type { Request, Response, NextFunction } from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import rateLimit from "express-rate-limit";
-import bandRoutes from "./routes/band.routes.ts";
+import { createBandRouter } from "./routes/band.routes.ts";
 import authRoutes from "./routes/auth.routes.ts";
-import type { BodyParserErrorType, CacheEntry, CacheStatus, CreateAppOptions } from "./types/index.ts";
+import { createMusicBrainzClient, MusicBrainzError } from "./services/musicbrainz.ts";
+import type { BodyParserErrorType, CreateAppOptions } from "./types/index.ts";
 
 const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
-const MUSICBRAINZ_URL = "https://musicbrainz.org/ws/2";
 
-// MusicBrainz asks for a way to contact the app owner. NO personal data goes in
-// the code: MB_USER_AGENT is set in the .env.
-const USER_AGENT = process.env.MB_USER_AGENT
-  || "EncyclopediaPunkorum/1.0 (student project)";
+// There used to be a /api/mb/* proxy here, so the browser could reach MusicBrainz
+// through us. It is gone: the browser never calls MusicBrainz at all now. Bands
+// are ingested server-side (services/musicbrainz.ts) and read back from MongoDB,
+// which is why this file no longer knows that MusicBrainz exists — beyond passing
+// fetch to the client the ingestion routes use.
 
-// MusicBrainz allows about one request per second and answers 503 beyond that.
-// Keeping answers for a few minutes keeps us far from the limit — 70s punk bands
-// don't change very often.
-const CACHE_TTL_MS = 5 * 60 * 1000;
-
-// The status MusicBrainz answers when we went over its rate limit.
-const RATE_LIMITED = 503;
-const DEFAULT_RETRY_DELAY_MS = 1000; // its limit is about one request per second
-
-export function createApp({
-  fetchImpl = fetch,
-  retryDelayMs = DEFAULT_RETRY_DELAY_MS,
-}: CreateAppOptions = {}) {
+export function createApp({ fetchImpl, retryDelayMs }: CreateAppOptions = {}) {
   const app = express();
 
   // Only our frontend may call this API. With cors() and no options, ANY website
@@ -49,64 +38,8 @@ export function createApp({
     message: { error: "Too many requests, please slow down." },
   }));
 
-  app.use("/bands", bandRoutes);
+  app.use("/bands", createBandRouter(createMusicBrainzClient({ fetchImpl, retryDelayMs })));
   app.use("/auth", authRoutes);
-
-  // --- Route: MusicBrainz proxy --------------------------------------------
-  // A browser refuses to send the User-Agent header MusicBrainz requires (it is a
-  // "forbidden header name"). A server can.
-
-  const cache = new Map<string, CacheEntry>(); // key: the url
-
-  const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
-  // A 503 almost always means we were a fraction of a second too early, not that
-  // MusicBrainz is down. Waiting once and asking again turns the most common
-  // failure into something the visitor never sees. Any other status is retried:
-  // asking a second time would not change a 404.
-  const fetchFromMusicBrainz = async (url: string) => {
-    const call = () => fetchImpl(url, { headers: { "User-Agent": USER_AGENT } });
-
-    const first = await call();
-    if (first.status !== RATE_LIMITED) return first;
-
-    await wait(retryDelayMs);
-    return call();
-  };
-  const setCacheStatus = (res: Response, status: CacheStatus) => res.set("X-Cache", status);
-
-  app.get("/api/mb/*path", async (req, res, next) => {
-    try {
-      const path = req.params.path.join("/");
-      const query = new URLSearchParams(req.query as Record<string, string>).toString();
-      const url = `${MUSICBRAINZ_URL}/${path}?${query}`;
-
-      const cached = cache.get(url);
-      if (cached && cached.expiresAt > Date.now()) {
-        setCacheStatus(res, "HIT");
-        return res.json(cached.body);
-      }
-
-      const response = await fetchFromMusicBrainz(url);
-
-      if (!response.ok) {
-        // A 503 usually means we went over the limit. Serving a stale answer is
-        // much better than showing the user nothing.
-        if (cached) {
-          setCacheStatus(res, "STALE");
-          return res.json(cached.body);
-        }
-        return res.status(response.status).json({ error: "MusicBrainz request failed." });
-      }
-
-      const body = await response.json();
-      cache.set(url, { expiresAt: Date.now() + CACHE_TTL_MS, body });
-      setCacheStatus(res, "MISS");
-      res.json(body);
-    } catch (error) {
-      next(error);
-    }
-  });
 
   // --- Centralised error handling ------------------------------------------
   // No route builds a technical error response itself: they call next(error) and
@@ -118,6 +51,12 @@ export function createApp({
   });
 
   app.use((error: unknown, req: Request, res: Response, next: NextFunction) => {
+    // MusicBrainz refused or could not be reached. Not our fault, so not a 500:
+    // 404 when it does not know the band, 502 when it is unreachable.
+    if (error instanceof MusicBrainzError) {
+      return res.status(error.status).json({ error: error.message });
+    }
+
     // A unique index rejected the write — an email already taken. Mongo decides
     // this atomically, which is why no code checks for it beforehand: between a
     // check and the insert, someone else could take the address.

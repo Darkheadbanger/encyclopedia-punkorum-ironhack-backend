@@ -1,12 +1,12 @@
-// Le modèle Band : un groupe de punk dans l'encyclopédie.
+// The Band model: a punk band in the encyclopedia.
 //
-// La validation vit maintenant DANS le schéma (required, maxlength, match...).
-// C'est la grande différence avec l'ancienne fonction validateBand() : Mongoose
-// refuse d'écrire un document invalide, même si une route oublie de vérifier.
-// La route n'a plus qu'à traduire l'erreur de Mongoose en réponse HTTP 400.
+// Validation now lives IN the schema (required, maxlength, match...). That is the
+// big difference with the old validateBand() function: Mongoose refuses to write an
+// invalid document even if a route forgets to check. The route only has to turn the
+// Mongoose error into an HTTP 400.
 
 import mongoose from "mongoose";
-import "../db/strict-types.ts"; // refuse { name: 42 } au lieu de le convertir en "42"
+import "../db/strict-types.ts"; // rejects { name: 42 } instead of casting it to "42"
 import type { Album, Band, Member } from "../types/index.ts";
 
 const MAX_NAME = 200;
@@ -14,27 +14,27 @@ const MAX_TEXT = 500;
 const MAX_LIST = 100;
 const MAX_DESCRIPTION = 20000;
 
-// Une année plausible : 4 chiffres, entre 1900 et l'an prochain.
-const anneeValide = {
-  validator: (valeur: string | null | undefined) => {
-    if (valeur == null || valeur === "") return true; // le champ est optionnel
-    if (!/^\d{4}$/.test(valeur)) return false;
-    return Number(valeur) >= 1900 && Number(valeur) <= new Date().getFullYear() + 1;
+// A plausible year: 4 digits, between 1900 and next year.
+const validYear = {
+  validator: (value: string | null | undefined) => {
+    if (value == null || value === "") return true; // the field is optional
+    if (!/^\d{4}$/.test(value)) return false;
+    return Number(value) >= 1900 && Number(value) <= new Date().getFullYear() + 1;
   },
-  message: (props: { value: unknown }) => `"${props.value}" n'est pas une année plausible (1900-${new Date().getFullYear() + 1}).`,
+  message: (props: { value: unknown }) => `"${props.value}" is not a plausible year (1900-${new Date().getFullYear() + 1}).`,
 };
 
-const listeCourte = {
-  validator: (liste: unknown[] | undefined) => !liste || liste.length <= MAX_LIST,
-  message: `Une liste ne peut pas dépasser ${MAX_LIST} entrées.`,
+const shortList = {
+  validator: (list: unknown[] | undefined) => !list || list.length <= MAX_LIST,
+  message: `A list cannot hold more than ${MAX_LIST} entries.`,
 };
 
-// Les albums et les membres sont IMBRIQUÉS dans le groupe, pas dans leur propre
-// collection : on ne les consulte jamais sans leur groupe. C'est exactement le cas
-// où le modèle document de Mongo est plus simple qu'une table séparée.
+// Albums and members are EMBEDDED in the band, not kept in their own collection:
+// they are never read without their band. This is exactly the case where Mongo's
+// document model is simpler than a separate table.
 const albumSchema = new mongoose.Schema<Album>({
   title: { type: String, required: true, trim: true, maxlength: MAX_TEXT },
-  year: { type: String, trim: true, validate: anneeValide },
+  year: { type: String, trim: true, validate: validYear },
   type: { type: String, trim: true, maxlength: MAX_TEXT },
 }, { _id: false });
 
@@ -42,40 +42,58 @@ const memberSchema = new mongoose.Schema<Member>({
   name: { type: String, required: true, trim: true, maxlength: MAX_TEXT },
   instrument: { type: String, trim: true, maxlength: MAX_TEXT },
   period: { type: String, trim: true, maxlength: MAX_TEXT },
-  otherBands: { type: [String], default: undefined, validate: listeCourte },
+  otherBands: { type: [String], default: undefined, validate: shortList },
 }, { _id: false });
 
 const bandSchema = new mongoose.Schema<Band>({
   name: {
     type: String,
-    required: [true, "Un groupe a besoin d'un nom."],
+    required: [true, "A band needs a name."],
     trim: true,
-    maxlength: [MAX_NAME, `Le nom doit faire moins de ${MAX_NAME} caractères.`],
+    maxlength: [MAX_NAME, `The name must be shorter than ${MAX_NAME} characters.`],
   },
   country: { type: String, trim: true, maxlength: MAX_TEXT, default: "" },
   location: { type: String, trim: true, maxlength: MAX_TEXT, default: "" },
   status: { type: String, trim: true, maxlength: MAX_TEXT, default: "" },
-  formed: { type: String, trim: true, validate: anneeValide, default: "" },
-  disbanded: { type: String, trim: true, validate: anneeValide, default: null },
-  genre: { type: [String], default: [], validate: listeCourte },
+  formed: { type: String, trim: true, validate: validYear, default: "" },
+  disbanded: { type: String, trim: true, validate: validYear, default: null },
+  genre: { type: [String], default: [], validate: shortList },
   disambiguation: { type: String, trim: true, maxlength: MAX_TEXT, default: "" },
   image: { type: String, trim: true, default: null },
-  albums: { type: [albumSchema], default: [], validate: listeCourte },
-  members: { type: [memberSchema], default: [], validate: listeCourte },
+  albums: { type: [albumSchema], default: [], validate: shortList },
+  members: { type: [memberSchema], default: [], validate: shortList },
   type: { type: String, trim: true, maxlength: MAX_TEXT, default: "Group" },
   description: { type: String, trim: true, maxlength: MAX_DESCRIPTION, default: "" },
   themes: { type: String, trim: true, maxlength: MAX_TEXT, default: "" },
   label: { type: String, trim: true, maxlength: MAX_TEXT, default: "" },
-}, {
-  timestamps: true, // ajoute createdAt et updatedAt automatiquement
 
-  // Mongo nomme sa clé "_id" et ajoute "__v". Le frontend, lui, attend "id".
-  // Cette transformation fait la traduction à la sortie, ce qui évite de toucher
-  // une seule ligne de React.
+  // Provenance. The API owns these two: a client never sets them, the controllers
+  // strip them from the request body.
+  source: {
+    type: String,
+    enum: ["manual", "musicbrainz"],
+    default: "manual",
+  },
+  // No default: the field must be ABSENT on a manual band. A unique index counts
+  // null as a value, so two nulls would collide — sparse only skips missing fields.
+  // This index is what makes the ingestion idempotent.
+  musicBrainzId: {
+    type: String,
+    trim: true,
+    maxlength: MAX_TEXT,
+    unique: true,
+    sparse: true,
+  },
+}, {
+  timestamps: true, // adds createdAt and updatedAt automatically
+
+  // Mongo names its key "_id" and adds "__v". The frontend expects "id". This
+  // transform does the translation on the way out, which is why the Mongo
+  // migration did not touch a single line of React.
   toJSON: {
     virtuals: true,
     versionKey: false,
-    transform: (document, { _id, ...objet }) => ({ id: _id.toString(), ...objet }),
+    transform: (document, { _id, ...object }) => ({ id: _id.toString(), ...object }),
   },
 });
 

@@ -20,14 +20,19 @@ export const getOneBand = async (req: Request, res: Response) => {
   res.json(band);
 };
 
+// The server owns the id and the provenance, never the client. A band created
+// through the API is manual by definition; only the ingestion writes the other two.
+const fromClient = (body: unknown) => {
+  const { id, _id, source, musicBrainzId, ...data } = (body ?? {}) as Record<string, unknown>;
+  return data;
+};
+
 export const createBand = async (req: Request, res: Response) => {
-  // The server owns the id, never the client.
-  const { id, _id, ...data } = req.body ?? {};
-  res.status(201).json(await Band.create(data));
+  res.status(201).json(await Band.create(fromClient(req.body)));
 };
 
 export const modifyBand = async (req: Request, res: Response) => {
-  const { id, _id, ...data } = req.body ?? {};
+  const data = fromClient(req.body);
   const band = await Band.findByIdAndUpdate(req.params.id, data, {
     returnDocument: "after",
     runValidators: true, // Mongoose only validates on create otherwise
