@@ -7,7 +7,13 @@
 
 import { describe, it, expect } from "vitest";
 import Band from "../models/Band.model.ts";
-import { comparableName, looksPunk, pickBestMatch, toBandFields } from "./musicbrainz.ts";
+import {
+  comparableName,
+  coverArtCandidates,
+  looksPunk,
+  pickBestMatch,
+  toBandFields,
+} from "./musicbrainz.ts";
 import type { MusicBrainzArtist } from "./musicbrainz.ts";
 
 const CRO_MAGS_ID = "7a2e6b55-f149-4e74-be6a-30a1b1a3e5ae";
@@ -458,5 +464,47 @@ describe("comparableName — punctuation and accents", () => {
   it("does not flatten genuinely different names", () => {
     expect(comparableName("Discharge")).not.toBe(comparableName("Discharger"));
     expect(comparableName("Doom")).not.toBe(comparableName("Doomed"));
+  });
+});
+
+// Four of the 81 bands pointed at a release whose sleeve the archive answers 500
+// for, and one at a 404: the art simply is not there. Taking only the first album
+// left those bands with a broken URL, so the caller needs the whole list to try.
+describe("coverArtCandidates", () => {
+  const punkBand = () => artist({
+    "release-groups": [
+      { id: "rg-live", title: "Live", "primary-type": "Album", "secondary-types": ["Live"], "first-release-date": "1989" },
+      { id: "rg-second", title: "Second", "primary-type": "Album", "first-release-date": "1988" },
+      { id: "rg-first", title: "First", "primary-type": "Album", "first-release-date": "1986" },
+    ],
+  });
+
+  it("puts the studio albums first, oldest first", () => {
+    const urls = coverArtCandidates(punkBand()["release-groups"]);
+
+    expect(urls[0]).toContain("rg-first");
+    expect(urls[1]).toContain("rg-second");
+  });
+
+  it("keeps the other releases as fallbacks rather than dropping them", () => {
+    const urls = coverArtCandidates(punkBand()["release-groups"]);
+
+    expect(urls).toHaveLength(3);
+    expect(urls[2]).toContain("rg-live");
+  });
+
+  it("lists each release once", () => {
+    const urls = coverArtCandidates(punkBand()["release-groups"]);
+    expect(new Set(urls).size).toBe(urls.length);
+  });
+
+  it("returns nothing when the band has no release", () => {
+    expect(coverArtCandidates(undefined)).toEqual([]);
+    expect(coverArtCandidates([])).toEqual([]);
+  });
+
+  // toImage stays the quick path used at ingestion: the first candidate.
+  it("agrees with toImage on the first choice", () => {
+    expect(toBandFields(punkBand()).image).toBe(coverArtCandidates(punkBand()["release-groups"])[0]);
   });
 });

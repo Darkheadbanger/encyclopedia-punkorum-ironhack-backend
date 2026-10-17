@@ -11,6 +11,7 @@
     "seed": "node seed.ts",
     "ingest": "node ingest.ts",
     "backfill-art": "node backfill-art.ts",
+    "download-art": "node download-art.ts",
     "typecheck": "tsc"
   },
   "dependencies": {

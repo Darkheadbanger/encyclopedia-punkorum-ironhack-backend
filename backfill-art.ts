@@ -13,15 +13,32 @@ import "dotenv/config";
 import { connectToDatabase, disconnectFromDatabase } from "./db/index.ts";
 import Band from "./models/Band.model.ts";
 import {
+  coverArtCandidates,
   createMusicBrainzClient,
   pickBestMatch,
-  toBandFields,
 } from "./services/musicbrainz.ts";
 
 const POLITE_DELAY_MS = 1100; // MusicBrainz allows about one request per second
 const SEARCH_LIMIT = 10;
 
 const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/** The first sleeve the archive actually holds.
+ *
+ *  The Cover Art Archive answers 404 — and sometimes 500 — for a release it has
+ *  no art for, so the best candidate is not always available. Asking before
+ *  storing the URL is what keeps a broken picture off the page. */
+const firstAvailable = async (urls: string[]) => {
+  for (const url of urls) {
+    try {
+      const response = await fetch(url, { method: "HEAD", redirect: "follow" });
+      if (response.ok) return url;
+    } catch {
+      // Network hiccup on this one: try the next release.
+    }
+  }
+  return null;
+};
 
 async function backfill() {
   await connectToDatabase();
@@ -50,11 +67,13 @@ async function backfill() {
       }
 
       await wait(POLITE_DELAY_MS);
-      const image = toBandFields(await musicBrainz.getArtist(match.id)).image;
+      const artist = await musicBrainz.getArtist(match.id);
+      // Every release, best first, until the archive answers for one of them.
+      const image = await firstAvailable(coverArtCandidates(artist["release-groups"]));
 
       if (!image) {
         noArt++;
-        console.log(`${position} ${band.name} — matched, but it has no release to picture`);
+        console.log(`${position} ${band.name} — matched, but no sleeve in the archive`);
         continue;
       }
 

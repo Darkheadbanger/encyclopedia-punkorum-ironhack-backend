@@ -1,6 +1,6 @@
 {
-  // Node exécute les .ts directement (type stripping) : tsc ne produit aucun fichier,
-  // il ne sert qu'à vérifier les types (npm run typecheck).
+  // Node runs the .ts files directly (type stripping): tsc emits nothing,
+  // it only checks the types (npm run typecheck).
   "compilerOptions": {
     "target": "ES2023",
     "module": "NodeNext",

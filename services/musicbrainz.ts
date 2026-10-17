@@ -192,19 +192,29 @@ const toAlbums = (releases: MusicBrainzArtist["release-groups"]): Album[] =>
 const coverArtUrl = (releaseGroupId: string) =>
   `https://coverartarchive.org/release-group/${releaseGroupId}/front-500`;
 
-/** The release that best represents the band: its earliest studio album, or
- *  failing that whatever it has. A compilation sleeve is a poor portrait. */
-const toImage = (releases: MusicBrainzArtist["release-groups"]) => {
-  if (!releases?.length) return null;
+/** Every sleeve this band could be pictured by, best first: studio albums from
+ *  the oldest, then everything else. A compilation sleeve is a poor portrait, but
+ *  it beats no picture.
+ *
+ *  A list rather than one URL because the archive answers 500 or 404 for releases
+ *  it holds no art for — four of the 81 bands pointed at exactly that. The caller
+ *  walks the list until one answers. */
+export const coverArtCandidates = (releases: MusicBrainzArtist["release-groups"]) => {
+  if (!releases?.length) return [];
 
   const byDate = [...releases].sort((one, other) =>
     (one["first-release-date"] ?? "9999").localeCompare(other["first-release-date"] ?? "9999"));
 
-  const studioAlbum = byDate.find((release) =>
-    release["primary-type"] === "Album" && !release["secondary-types"]?.length);
+  const isStudioAlbum = (release: (typeof byDate)[number]) =>
+    release["primary-type"] === "Album" && !release["secondary-types"]?.length;
 
-  return coverArtUrl((studioAlbum ?? byDate[0]).id);
+  return [...byDate.filter(isStudioAlbum), ...byDate.filter((release) => !isStudioAlbum(release))]
+    .map((release) => coverArtUrl(release.id));
 };
+
+/** The quick path used at ingestion: the best candidate, unverified. */
+const toImage = (releases: MusicBrainzArtist["release-groups"]) =>
+  coverArtCandidates(releases)[0] ?? null;
 
 const toMembers = (relations: MusicBrainzArtist["relations"]): Member[] =>
   (relations ?? [])
