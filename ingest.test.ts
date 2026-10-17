@@ -100,6 +100,17 @@ describe("GET /bands/upstream", () => {
     expect(response.body[0].alreadyImported).toBe(true);
   });
 
+  // The bug this test exists for: Crass came from db.json, so it carries no
+  // MusicBrainz id. Matching on the id alone offered an Import button for a band
+  // already on the page, and clicking it produced a second Crass.
+  it("flags a candidate we already hold under no MusicBrainz id", async () => {
+    await new Band({ name: "Cro-Mags" }).save(); // typed by hand, no id
+
+    const response = await asEditor(request(app()).get("/bands/upstream?q=cro-mags"));
+
+    expect(response.body[0].alreadyImported).toBe(true);
+  });
+
   it("asks for a search term instead of querying everything", async () => {
     const response = await asEditor(request(app()).get("/bands/upstream?q=  "));
 
@@ -228,6 +239,26 @@ describe("POST /bands/import", () => {
     expect(again.status).toBe(409);
     expect(again.body.error).toMatch(/already/i);
     expect(await Band.countDocuments({ musicBrainzId: CRO_MAGS_ID })).toBe(1);
+  });
+
+  // Same bug, through the other door: the unique index cannot see a band that has
+  // no MusicBrainz id, so only comparing the names stops this one.
+  it("refuses to import a band we already hold under no MusicBrainz id", async () => {
+    await new Band({ name: "Cro-Mags" }).save();
+
+    const response = await importIt();
+
+    expect(response.status).toBe(409);
+    expect(await Band.countDocuments({ name: "Cro-Mags" })).toBe(1);
+  });
+
+  // comparableName() strips accents, articles and typographic apostrophes, so
+  // "The Cro-Mags" must not slip past as a different band.
+  it("sees through a leading article", async () => {
+    await new Band({ name: "The Cro-Mags" }).save();
+
+    expect((await importIt()).status).toBe(409);
+    expect(await Band.countDocuments()).toBe(1);
   });
 
   it("asks for an id instead of guessing", async () => {

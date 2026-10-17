@@ -72,7 +72,12 @@ async function ingest() {
         continue;
       }
 
-      const band = await Band.create(toBandFields(full));
+      const fields = toBandFields(full);
+      // Once here rather than in every visitor's browser: the Cover Art Archive
+      // address redirects twice before the file arrives.
+      fields.image = await musicBrainz.resolveArtwork(fields.image);
+
+      const band = await Band.create(fields);
       known.add(comparableName(band.name));
       imported++;
       console.log(`${position} ${band.name} — imported (${band.albums.length} release(s), ${band.members.length} member(s))`);

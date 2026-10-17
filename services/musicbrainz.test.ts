@@ -5,11 +5,12 @@
 // without a network and without a database — but the last test does save the result,
 // because a mapping the schema rejects is a mapping that breaks the ingestion.
 
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import Band from "../models/Band.model.ts";
 import {
   comparableName,
   coverArtCandidates,
+  createMusicBrainzClient,
   looksPunk,
   pickBestMatch,
   toBandFields,
@@ -506,5 +507,54 @@ describe("coverArtCandidates", () => {
   // toImage stays the quick path used at ingestion: the first candidate.
   it("agrees with toImage on the first choice", () => {
     expect(toBandFields(punkBand()).image).toBe(coverArtCandidates(punkBand()["release-groups"])[0]);
+  });
+});
+
+// A Cover Art Archive address answers 307 to archive.org, which answers 307 again
+// to the storage node holding the file. The band page sat on its placeholder for
+// three seconds waiting for that chain. Following it once, at ingestion, is what
+// this does — no network here: fetch is injected.
+describe("resolveArtwork", () => {
+  const CANONICAL = "https://coverartarchive.org/release-group/r1/front-500";
+  const RESOLVED = "https://dn710906.ca.archive.org/0/items/mbid-x/mbid-x_thumb500.jpg";
+
+  const client = (fetchImpl: typeof fetch) =>
+    createMusicBrainzClient({ fetchImpl, retryDelayMs: 0 });
+
+  it("keeps the address the redirects finally led to", async () => {
+    const fetchImpl = vi.fn<typeof fetch>()
+      .mockResolvedValue({ ok: true, url: RESOLVED } as Response);
+
+    expect(await client(fetchImpl).resolveArtwork(CANONICAL)).toBe(RESOLVED);
+  });
+
+  it("asks for the headers only: the file itself is for the visitor", async () => {
+    const fetchImpl = vi.fn<typeof fetch>()
+      .mockResolvedValue({ ok: true, url: RESOLVED } as Response);
+
+    await client(fetchImpl).resolveArtwork(CANONICAL);
+
+    expect(fetchImpl).toHaveBeenCalledWith(CANONICAL, { method: "HEAD", redirect: "follow" });
+  });
+
+  // A slow picture beats no picture: whatever happens, the canonical address works.
+  it("keeps the canonical address when the archive refuses", async () => {
+    const fetchImpl = vi.fn<typeof fetch>()
+      .mockResolvedValue({ ok: false, url: "https://archive.org/404" } as Response);
+
+    expect(await client(fetchImpl).resolveArtwork(CANONICAL)).toBe(CANONICAL);
+  });
+
+  it("keeps the canonical address when the archive cannot be reached", async () => {
+    const fetchImpl = vi.fn<typeof fetch>().mockRejectedValue(new Error("offline"));
+
+    expect(await client(fetchImpl).resolveArtwork(CANONICAL)).toBe(CANONICAL);
+  });
+
+  it("leaves a band with no sleeve alone, without asking anything", async () => {
+    const fetchImpl = vi.fn<typeof fetch>();
+
+    expect(await client(fetchImpl).resolveArtwork(null)).toBeNull();
+    expect(fetchImpl).not.toHaveBeenCalled();
   });
 });
