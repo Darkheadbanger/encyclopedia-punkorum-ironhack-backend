@@ -47,7 +47,19 @@ export const login = async (req: Request, res: Response) => {
   });
 };
 
-// Reached only through isAuthenticated, so the payload is already verified.
+// Reached only through isAuthenticated, so the signature is already verified.
+//
+// But a signature only proves the token was issued by us a week ago — not that
+// the account still exists. Echoing the payload back kept a deleted account
+// logged in until its token expired, still able to write, and left its reviews
+// signed by nobody. Reading the account is one query per page load, and it is
+// also how a changed username reaches the page without logging in again.
 export const verify = async (req: Request, res: Response) => {
-  res.json(req.payload);
+  const user = await User.findById(req.payload!.id);
+  if (!user) {
+    res.status(401).json({ error: "Token missing or invalid." });
+    return;
+  }
+
+  res.json(user);
 };

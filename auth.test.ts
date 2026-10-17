@@ -170,6 +170,31 @@ describe("GET /auth/verify", () => {
 
     expect(response.status).toBe(401);
   });
+
+  // A signature proves the token was issued by us, not that the account is still
+  // there. Without this, deleting an account left it logged in — and able to
+  // write — until the token expired a week later.
+  it("answers 401 once the account is gone, even with a valid token", async () => {
+    const token = await tokenFor();
+    await User.deleteMany({ email: credentials.email });
+
+    const response = await request(app())
+      .get("/auth/verify")
+      .set("Authorization", `Bearer ${token}`);
+
+    expect(response.status).toBe(401);
+  });
+
+  it("never sends the password hash back", async () => {
+    const token = await tokenFor();
+
+    const response = await request(app())
+      .get("/auth/verify")
+      .set("Authorization", `Bearer ${token}`);
+
+    expect(response.body.password).toBeUndefined();
+    expect(response.body.id).toMatch(/^[0-9a-f]{24}$/);
+  });
 });
 
 describe("authorization on /bands", () => {
