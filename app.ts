@@ -9,6 +9,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import rateLimit from "express-rate-limit";
 import { createBandRouter } from "./routes/band.routes.ts";
+import reviewRoutes from "./routes/review.routes.ts";
 import authRoutes from "./routes/auth.routes.ts";
 import { createMusicBrainzClient, MusicBrainzError } from "./services/musicbrainz.ts";
 import type { BodyParserErrorType, CreateAppOptions } from "./types/index.ts";
@@ -39,6 +40,7 @@ export function createApp({ fetchImpl, retryDelayMs }: CreateAppOptions = {}) {
   }));
 
   app.use("/bands", createBandRouter(createMusicBrainzClient({ fetchImpl, retryDelayMs })));
+  app.use("/reviews", reviewRoutes);
   app.use("/auth", authRoutes);
 
   // --- Centralised error handling ------------------------------------------

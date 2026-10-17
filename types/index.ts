@@ -2,4 +2,5 @@
 
 export type * from "./band.ts";
 export type * from "./user.ts";
+export type * from "./review.ts";
 export type * from "./api.ts";
