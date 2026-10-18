@@ -164,6 +164,16 @@ const toYear = (date?: string | null) => {
   return year;
 };
 
+/** A member's years, as the band page prints them.
+ *
+ *  "1977-1984" when both are known, "1977-" while they are still in the band,
+ *  and the year alone when only the end survived — joining blindly produced
+ *  "-1990", which the page showed as "(-1990)". */
+export const toPeriod = (begin: string, end: string) => {
+  if (begin) return `${begin}-${end}`;
+  return end;
+};
+
 const toGenres = (tags: MusicBrainzArtist["tags"]) => {
   const punk = (tags ?? [])
     .filter((tag) => PUNK_TAG.test(tag.name))
@@ -222,8 +232,11 @@ const toMembers = (relations: MusicBrainzArtist["relations"]): Member[] =>
     .map((relation) => ({
       name: relation.artist!.name,
       instrument: (relation.attributes ?? []).join(", "),
-      // An open period means the musician is still in the band.
-      period: [toYear(relation.begin), toYear(relation.end)].join("-").replace(/^-$/, ""),
+      // An open period means the musician is still in the band, and prints as
+      // "1977-". Knowing only the end used to print "-1990", which reads as a
+      // negative number rather than a missing start, so that case prints the
+      // year alone. Knowing neither prints nothing at all.
+      period: toPeriod(toYear(relation.begin), toYear(relation.end)),
     }));
 
 const toStatus = (lifeSpan: MusicBrainzArtist["life-span"]) => {

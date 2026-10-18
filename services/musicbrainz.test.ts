@@ -14,6 +14,7 @@ import {
   looksPunk,
   pickBestMatch,
   toBandFields,
+  toPeriod,
 } from "./musicbrainz.ts";
 import type { MusicBrainzArtist } from "./musicbrainz.ts";
 
@@ -556,5 +557,18 @@ describe("resolveArtwork", () => {
 
     expect(await client(fetchImpl).resolveArtwork(null)).toBeNull();
     expect(fetchImpl).not.toHaveBeenCalled();
+  });
+});
+
+// A member whose start year is missing used to print "-1990" on the band page,
+// which reads as a negative number rather than as a missing start.
+describe("toPeriod", () => {
+  it.each([
+    ["1977", "1984", "1977-1984"],
+    ["1977", "", "1977-"],   // still in the band
+    ["", "1990", "1990"],    // only the end survived
+    ["", "", ""],            // nothing known
+  ])("(%s, %s) -> %s", (begin, end, expected) => {
+    expect(toPeriod(begin, end)).toBe(expected);
   });
 });
