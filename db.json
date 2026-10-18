@@ -7,20 +7,56 @@
       "status": "Split-up",
       "formed": "1964",
       "disbanded": "1972",
-      "genre": ["proto-punk", "garage rock", "hard rock"],
+      "genre": [
+        "proto-punk",
+        "garage rock",
+        "hard rock"
+      ],
       "disambiguation": "Detroit proto-punk band, the Motor City Five",
       "image": null,
       "albums": [
-        { "title": "Kick Out the Jams", "year": "1969", "type": "Live" },
-        { "title": "Back in the USA", "year": "1970", "type": "Album" },
-        { "title": "High Time", "year": "1971", "type": "Album" }
+        {
+          "title": "Kick Out the Jams",
+          "year": "1969",
+          "type": "Live album"
+        },
+        {
+          "title": "Back in the USA",
+          "year": "1970",
+          "type": "Full-length"
+        },
+        {
+          "title": "High Time",
+          "year": "1971",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Rob Tyner", "instrument": "vocals", "period": "1964-1972" },
-        { "name": "Wayne Kramer", "instrument": "guitar", "period": "1964-1972" },
-        { "name": "Fred Smith", "instrument": "guitar", "period": "1964-1972" },
-        { "name": "Michael Davis", "instrument": "bass", "period": "1964-1972" },
-        { "name": "Dennis Thompson", "instrument": "drums", "period": "1964-1972" }
+        {
+          "name": "Rob Tyner",
+          "instrument": "vocals",
+          "period": "1964-1972"
+        },
+        {
+          "name": "Wayne Kramer",
+          "instrument": "guitar",
+          "period": "1964-1972"
+        },
+        {
+          "name": "Fred Smith",
+          "instrument": "guitar",
+          "period": "1964-1972"
+        },
+        {
+          "name": "Michael Davis",
+          "instrument": "bass",
+          "period": "1964-1972"
+        },
+        {
+          "name": "Dennis Thompson",
+          "instrument": "drums",
+          "period": "1964-1972"
+        }
       ],
       "type": "Group",
       "description": "Louder and more political than anything else in 1968: a band managed by the White Panther Party, playing at a volume rock had not used before. Punk's grandparents.",
@@ -34,19 +70,50 @@
       "status": "Split-up",
       "formed": "1967",
       "disbanded": "2013",
-      "genre": ["proto-punk", "garage rock"],
+      "genre": [
+        "proto-punk",
+        "garage rock"
+      ],
       "disambiguation": "Iggy Pop's band, originally The Psychedelic Stooges",
       "image": null,
       "albums": [
-        { "title": "The Stooges", "year": "1969", "type": "Album" },
-        { "title": "Fun House", "year": "1970", "type": "Album" },
-        { "title": "Raw Power", "year": "1973", "type": "Album" }
+        {
+          "title": "The Stooges",
+          "year": "1969",
+          "type": "Full-length"
+        },
+        {
+          "title": "Fun House",
+          "year": "1970",
+          "type": "Full-length"
+        },
+        {
+          "title": "Raw Power",
+          "year": "1973",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Iggy Pop", "instrument": "vocals", "period": "1967-2013" },
-        { "name": "Ron Asheton", "instrument": "guitar", "period": "1967-1974" },
-        { "name": "Scott Asheton", "instrument": "drums", "period": "1967-2013" },
-        { "name": "Dave Alexander", "instrument": "bass", "period": "1967-1970" }
+        {
+          "name": "Iggy Pop",
+          "instrument": "vocals",
+          "period": "1967-2013"
+        },
+        {
+          "name": "Ron Asheton",
+          "instrument": "guitar",
+          "period": "1967-1974"
+        },
+        {
+          "name": "Scott Asheton",
+          "instrument": "drums",
+          "period": "1967-2013"
+        },
+        {
+          "name": "Dave Alexander",
+          "instrument": "bass",
+          "period": "1967-1970"
+        }
       ],
       "type": "Group",
       "description": "Three chords, one riff repeated until it hurts, and a singer who threw himself into the crowd. Everything punk would later take for granted was already here.",
@@ -60,16 +127,36 @@
       "status": "Split-up",
       "formed": "1971",
       "disbanded": "1977",
-      "genre": ["proto-punk", "afro-punk", "garage rock"],
+      "genre": [
+        "proto-punk",
+        "afro-punk",
+        "garage rock"
+      ],
       "disambiguation": "Detroit proto-punk trio of the Hackney brothers, not the death metal band",
       "image": null,
       "albums": [
-        { "title": "...For the Whole World to See", "year": "2009", "type": "Album" }
+        {
+          "title": "...For the Whole World to See",
+          "year": "2009",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "David Hackney", "instrument": "guitar", "period": "1971-1977" },
-        { "name": "Bobby Hackney", "instrument": "bass, vocals", "period": "1971-1977" },
-        { "name": "Dannis Hackney", "instrument": "drums", "period": "1971-1977" }
+        {
+          "name": "David Hackney",
+          "instrument": "guitar",
+          "period": "1971-1977"
+        },
+        {
+          "name": "Bobby Hackney",
+          "instrument": "bass, vocals",
+          "period": "1971-1977"
+        },
+        {
+          "name": "Dannis Hackney",
+          "instrument": "drums",
+          "period": "1971-1977"
+        }
       ],
       "type": "Group",
       "description": "Three Black brothers playing punk in Detroit before the word existed. Labels wanted them to change the name; they refused, and the tapes sat in an attic for thirty years.",
@@ -83,19 +170,54 @@
       "status": "Split-up",
       "formed": "1971",
       "disbanded": "2011",
-      "genre": ["glam punk", "proto-punk", "New York Punk"],
+      "genre": [
+        "glam punk",
+        "proto-punk",
+        "New York Punk"
+      ],
       "disambiguation": "American glam punk band from Manhattan",
       "image": null,
       "albums": [
-        { "title": "New York Dolls", "year": "1973", "type": "Album" },
-        { "title": "Too Much Too Soon", "year": "1974", "type": "Album" }
+        {
+          "title": "New York Dolls",
+          "year": "1973",
+          "type": "Full-length"
+        },
+        {
+          "title": "Too Much Too Soon",
+          "year": "1974",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "David Johansen", "instrument": "vocals", "period": "1971-2011" },
-        { "name": "Johnny Thunders", "instrument": "guitar", "period": "1971-1975", "otherBands": ["The Heartbreakers"] },
-        { "name": "Sylvain Sylvain", "instrument": "guitar", "period": "1971-2011" },
-        { "name": "Arthur Kane", "instrument": "bass", "period": "1971-1975" },
-        { "name": "Jerry Nolan", "instrument": "drums", "period": "1972-1975" }
+        {
+          "name": "David Johansen",
+          "instrument": "vocals",
+          "period": "1971-2011"
+        },
+        {
+          "name": "Johnny Thunders",
+          "instrument": "guitar",
+          "period": "1971-1975",
+          "otherBands": [
+            "The Heartbreakers"
+          ]
+        },
+        {
+          "name": "Sylvain Sylvain",
+          "instrument": "guitar",
+          "period": "1971-2011"
+        },
+        {
+          "name": "Arthur Kane",
+          "instrument": "bass",
+          "period": "1971-1975"
+        },
+        {
+          "name": "Jerry Nolan",
+          "instrument": "drums",
+          "period": "1972-1975"
+        }
       ],
       "type": "Group",
       "description": "Platform heels, lipstick and songs that barely held together. Malcolm McLaren managed them briefly, then went home to London and built the Sex Pistols out of what he had learned.",
@@ -109,16 +231,36 @@
       "status": "Split-up",
       "formed": "1970",
       "disbanded": "2016",
-      "genre": ["synth-punk", "no wave", "proto-punk"],
+      "genre": [
+        "synth-punk",
+        "no wave",
+        "proto-punk"
+      ],
       "disambiguation": "New York synth-punk duo",
       "image": null,
       "albums": [
-        { "title": "Suicide", "year": "1977", "type": "Album" },
-        { "title": "Second Album", "year": "1980", "type": "Album" }
+        {
+          "title": "Suicide",
+          "year": "1977",
+          "type": "Full-length"
+        },
+        {
+          "title": "Second Album",
+          "year": "1980",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Alan Vega", "instrument": "vocals", "period": "1970-2016" },
-        { "name": "Martin Rev", "instrument": "synthesiser, drum machine", "period": "1970-2016" }
+        {
+          "name": "Alan Vega",
+          "instrument": "vocals",
+          "period": "1970-2016"
+        },
+        {
+          "name": "Martin Rev",
+          "instrument": "synthesiser, drum machine",
+          "period": "1970-2016"
+        }
       ],
       "type": "Group",
       "description": "A drum machine, one cheap keyboard and a singer screaming into the feedback. They proved punk never needed a guitar, and got bottles thrown at them for ten years.",
@@ -132,18 +274,46 @@
       "status": "Split-up",
       "formed": "1973",
       "disbanded": "2023",
-      "genre": ["art punk", "New York Punk", "proto-punk"],
+      "genre": [
+        "art punk",
+        "New York Punk",
+        "proto-punk"
+      ],
       "disambiguation": "CBGB band led by Tom Verlaine",
       "image": null,
       "albums": [
-        { "title": "Marquee Moon", "year": "1977", "type": "Album" },
-        { "title": "Adventure", "year": "1978", "type": "Album" }
+        {
+          "title": "Marquee Moon",
+          "year": "1977",
+          "type": "Full-length"
+        },
+        {
+          "title": "Adventure",
+          "year": "1978",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Tom Verlaine", "instrument": "vocals, guitar", "period": "1973-2023" },
-        { "name": "Richard Lloyd", "instrument": "guitar", "period": "1973-2007" },
-        { "name": "Fred Smith", "instrument": "bass", "period": "1975-2023" },
-        { "name": "Billy Ficca", "instrument": "drums", "period": "1973-2023" }
+        {
+          "name": "Tom Verlaine",
+          "instrument": "vocals, guitar",
+          "period": "1973-2023"
+        },
+        {
+          "name": "Richard Lloyd",
+          "instrument": "guitar",
+          "period": "1973-2007"
+        },
+        {
+          "name": "Fred Smith",
+          "instrument": "bass",
+          "period": "1975-2023"
+        },
+        {
+          "name": "Billy Ficca",
+          "instrument": "drums",
+          "period": "1973-2023"
+        }
       ],
       "type": "Group",
       "description": "The band that talked CBGB into booking rock groups, which is why the scene happened there at all. Ten-minute guitar interplay: punk in attitude, never in form.",
@@ -157,20 +327,56 @@
       "status": "Split-up",
       "formed": "1974",
       "disbanded": "1996",
-      "genre": ["punk rock", "New York Punk", "pop punk"],
+      "genre": [
+        "punk rock",
+        "New York Punk",
+        "pop punk"
+      ],
       "disambiguation": "American punk rock band from Queens",
       "image": null,
       "albums": [
-        { "title": "Ramones", "year": "1976", "type": "Album" },
-        { "title": "Leave Home", "year": "1977", "type": "Album" },
-        { "title": "Rocket to Russia", "year": "1977", "type": "Album" },
-        { "title": "Road to Ruin", "year": "1978", "type": "Album" }
+        {
+          "title": "Ramones",
+          "year": "1976",
+          "type": "Full-length"
+        },
+        {
+          "title": "Leave Home",
+          "year": "1977",
+          "type": "Full-length"
+        },
+        {
+          "title": "Rocket to Russia",
+          "year": "1977",
+          "type": "Full-length"
+        },
+        {
+          "title": "Road to Ruin",
+          "year": "1978",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Joey Ramone", "instrument": "vocals", "period": "1974-1996" },
-        { "name": "Johnny Ramone", "instrument": "guitar", "period": "1974-1996" },
-        { "name": "Dee Dee Ramone", "instrument": "bass", "period": "1974-1989" },
-        { "name": "Tommy Ramone", "instrument": "drums", "period": "1974-1978" }
+        {
+          "name": "Joey Ramone",
+          "instrument": "vocals",
+          "period": "1974-1996"
+        },
+        {
+          "name": "Johnny Ramone",
+          "instrument": "guitar",
+          "period": "1974-1996"
+        },
+        {
+          "name": "Dee Dee Ramone",
+          "instrument": "bass",
+          "period": "1974-1989"
+        },
+        {
+          "name": "Tommy Ramone",
+          "instrument": "drums",
+          "period": "1974-1978"
+        }
       ],
       "type": "Group",
       "description": "Four men in leather jackets, the same surname and none of them brothers. Two-minute songs at full speed: the template every punk band since has either copied or reacted against.",
@@ -184,18 +390,48 @@
       "status": "Split-up",
       "formed": "1975",
       "disbanded": "1978",
-      "genre": ["punk rock", "77 Punk"],
+      "genre": [
+        "punk rock",
+        "77 Punk"
+      ],
       "disambiguation": "English punk rock band managed by Malcolm McLaren",
       "image": null,
       "albums": [
-        { "title": "Never Mind the Bollocks, Here's the Sex Pistols", "year": "1977", "type": "Album" }
+        {
+          "title": "Never Mind the Bollocks, Here's the Sex Pistols",
+          "year": "1977",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Johnny Rotten", "instrument": "vocals", "period": "1975-1978", "otherBands": ["Public Image Ltd"] },
-        { "name": "Steve Jones", "instrument": "guitar", "period": "1975-1978" },
-        { "name": "Glen Matlock", "instrument": "bass", "period": "1975-1977" },
-        { "name": "Sid Vicious", "instrument": "bass", "period": "1977-1978" },
-        { "name": "Paul Cook", "instrument": "drums", "period": "1975-1978" }
+        {
+          "name": "Johnny Rotten",
+          "instrument": "vocals",
+          "period": "1975-1978",
+          "otherBands": [
+            "Public Image Ltd"
+          ]
+        },
+        {
+          "name": "Steve Jones",
+          "instrument": "guitar",
+          "period": "1975-1978"
+        },
+        {
+          "name": "Glen Matlock",
+          "instrument": "bass",
+          "period": "1975-1977"
+        },
+        {
+          "name": "Sid Vicious",
+          "instrument": "bass",
+          "period": "1977-1978"
+        },
+        {
+          "name": "Paul Cook",
+          "instrument": "drums",
+          "period": "1975-1978"
+        }
       ],
       "type": "Group",
       "description": "One album, two and a half years, and a hole in British culture that never closed. Jamie Reid's ransom-note sleeves did as much damage as the songs.",
@@ -209,20 +445,57 @@
       "status": "Active",
       "formed": "1976",
       "disbanded": null,
-      "genre": ["punk rock", "77 Punk", "deathrock", "goth rock"],
+      "genre": [
+        "punk rock",
+        "77 Punk",
+        "deathrock",
+        "goth rock"
+      ],
       "disambiguation": "First UK punk band to release a single and an album",
       "image": null,
       "albums": [
-        { "title": "Damned Damned Damned", "year": "1977", "type": "Album" },
-        { "title": "Machine Gun Etiquette", "year": "1979", "type": "Album" },
-        { "title": "The Black Album", "year": "1980", "type": "Album" },
-        { "title": "Phantasmagoria", "year": "1985", "type": "Album" }
+        {
+          "title": "Damned Damned Damned",
+          "year": "1977",
+          "type": "Full-length"
+        },
+        {
+          "title": "Machine Gun Etiquette",
+          "year": "1979",
+          "type": "Full-length"
+        },
+        {
+          "title": "The Black Album",
+          "year": "1980",
+          "type": "Full-length"
+        },
+        {
+          "title": "Phantasmagoria",
+          "year": "1985",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Dave Vanian", "instrument": "vocals", "period": "1976-" },
-        { "name": "Captain Sensible", "instrument": "guitar, bass", "period": "1976-1984, 1996-" },
-        { "name": "Brian James", "instrument": "guitar", "period": "1976-1978" },
-        { "name": "Rat Scabies", "instrument": "drums", "period": "1976-1995" }
+        {
+          "name": "Dave Vanian",
+          "instrument": "vocals",
+          "period": "1976-"
+        },
+        {
+          "name": "Captain Sensible",
+          "instrument": "guitar, bass",
+          "period": "1976-1984, 1996-"
+        },
+        {
+          "name": "Brian James",
+          "instrument": "guitar",
+          "period": "1976-1978"
+        },
+        {
+          "name": "Rat Scabies",
+          "instrument": "drums",
+          "period": "1976-1995"
+        }
       ],
       "type": "Group",
       "description": "New Rose beat the Pistols to the shops by five weeks, making them the first UK punk single. They then spent forty years refusing to stay punk, inventing goth on the way.",
@@ -236,21 +509,62 @@
       "status": "Split-up",
       "formed": "1976",
       "disbanded": "1986",
-      "genre": ["punk rock", "77 Punk", "post-punk", "ska punk"],
+      "genre": [
+        "punk rock",
+        "77 Punk",
+        "post-punk",
+        "ska punk"
+      ],
       "disambiguation": "English punk rock band, the only band that mattered",
       "image": null,
       "albums": [
-        { "title": "The Clash", "year": "1977", "type": "Album" },
-        { "title": "Give 'Em Enough Rope", "year": "1978", "type": "Album" },
-        { "title": "London Calling", "year": "1979", "type": "Album" },
-        { "title": "Sandinista!", "year": "1980", "type": "Album" },
-        { "title": "Combat Rock", "year": "1982", "type": "Album" }
+        {
+          "title": "The Clash",
+          "year": "1977",
+          "type": "Full-length"
+        },
+        {
+          "title": "Give 'Em Enough Rope",
+          "year": "1978",
+          "type": "Full-length"
+        },
+        {
+          "title": "London Calling",
+          "year": "1979",
+          "type": "Full-length"
+        },
+        {
+          "title": "Sandinista!",
+          "year": "1980",
+          "type": "Full-length"
+        },
+        {
+          "title": "Combat Rock",
+          "year": "1982",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Joe Strummer", "instrument": "vocals, guitar", "period": "1976-1986" },
-        { "name": "Mick Jones", "instrument": "guitar, vocals", "period": "1976-1983" },
-        { "name": "Paul Simonon", "instrument": "bass", "period": "1976-1986" },
-        { "name": "Topper Headon", "instrument": "drums", "period": "1977-1982" }
+        {
+          "name": "Joe Strummer",
+          "instrument": "vocals, guitar",
+          "period": "1976-1986"
+        },
+        {
+          "name": "Mick Jones",
+          "instrument": "guitar, vocals",
+          "period": "1976-1983"
+        },
+        {
+          "name": "Paul Simonon",
+          "instrument": "bass",
+          "period": "1976-1986"
+        },
+        {
+          "name": "Topper Headon",
+          "instrument": "drums",
+          "period": "1977-1982"
+        }
       ],
       "type": "Group",
       "description": "The band that refused punk's three-chord rule and pulled reggae, dub, rockabilly and hip-hop into it. London Calling is a punk record only in attitude.",
@@ -264,19 +578,54 @@
       "status": "Active",
       "formed": "1976",
       "disbanded": null,
-      "genre": ["punk rock", "pop punk", "77 Punk"],
+      "genre": [
+        "punk rock",
+        "pop punk",
+        "77 Punk"
+      ],
       "disambiguation": "Manchester punk band, pioneers of the self-released EP",
       "image": null,
       "albums": [
-        { "title": "Spiral Scratch", "year": "1977", "type": "EP" },
-        { "title": "Another Music in a Different Kitchen", "year": "1978", "type": "Album" },
-        { "title": "Love Bites", "year": "1978", "type": "Album" },
-        { "title": "A Different Kind of Tension", "year": "1979", "type": "Album" }
+        {
+          "title": "Spiral Scratch",
+          "year": "1977",
+          "type": "EP"
+        },
+        {
+          "title": "Another Music in a Different Kitchen",
+          "year": "1978",
+          "type": "Full-length"
+        },
+        {
+          "title": "Love Bites",
+          "year": "1978",
+          "type": "Full-length"
+        },
+        {
+          "title": "A Different Kind of Tension",
+          "year": "1979",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Pete Shelley", "instrument": "vocals, guitar", "period": "1976-2018" },
-        { "name": "Howard Devoto", "instrument": "vocals", "period": "1976-1977", "otherBands": ["Magazine"] },
-        { "name": "Steve Diggle", "instrument": "guitar", "period": "1976-" }
+        {
+          "name": "Pete Shelley",
+          "instrument": "vocals, guitar",
+          "period": "1976-2018"
+        },
+        {
+          "name": "Howard Devoto",
+          "instrument": "vocals",
+          "period": "1976-1977",
+          "otherBands": [
+            "Magazine"
+          ]
+        },
+        {
+          "name": "Steve Diggle",
+          "instrument": "guitar",
+          "period": "1976-"
+        }
       ],
       "type": "Group",
       "description": "They put out Spiral Scratch themselves in 1977 and accidentally invented the independent record label. Then they wrote love songs, which in punk was the real provocation.",
@@ -290,19 +639,51 @@
       "status": "Split-up",
       "formed": "1976",
       "disbanded": "1996",
-      "genre": ["post-punk", "77 Punk", "goth rock"],
+      "genre": [
+        "post-punk",
+        "77 Punk",
+        "goth rock"
+      ],
       "disambiguation": "English post-punk band from the Bromley Contingent",
       "image": null,
       "albums": [
-        { "title": "The Scream", "year": "1978", "type": "Album" },
-        { "title": "Juju", "year": "1981", "type": "Album" },
-        { "title": "A Kiss in the Dreamhouse", "year": "1982", "type": "Album" }
+        {
+          "title": "The Scream",
+          "year": "1978",
+          "type": "Full-length"
+        },
+        {
+          "title": "Juju",
+          "year": "1981",
+          "type": "Full-length"
+        },
+        {
+          "title": "A Kiss in the Dreamhouse",
+          "year": "1982",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Siouxsie Sioux", "instrument": "vocals", "period": "1976-1996" },
-        { "name": "Steven Severin", "instrument": "bass", "period": "1976-1996" },
-        { "name": "Budgie", "instrument": "drums", "period": "1979-1996" },
-        { "name": "John McKay", "instrument": "guitar", "period": "1977-1979" }
+        {
+          "name": "Siouxsie Sioux",
+          "instrument": "vocals",
+          "period": "1976-1996"
+        },
+        {
+          "name": "Steven Severin",
+          "instrument": "bass",
+          "period": "1976-1996"
+        },
+        {
+          "name": "Budgie",
+          "instrument": "drums",
+          "period": "1979-1996"
+        },
+        {
+          "name": "John McKay",
+          "instrument": "guitar",
+          "period": "1977-1979"
+        }
       ],
       "type": "Group",
       "description": "Their first gig was twenty minutes of the Lord's Prayer over noise, with no songs written. Four years later they were the blueprint for goth.",
@@ -316,18 +697,53 @@
       "status": "Split-up",
       "formed": "1976",
       "disbanded": "1980",
-      "genre": ["post-punk"],
+      "genre": [
+        "post-punk"
+      ],
       "disambiguation": "Manchester post-punk band, formerly Warsaw",
       "image": null,
       "albums": [
-        { "title": "Unknown Pleasures", "year": "1979", "type": "Album" },
-        { "title": "Closer", "year": "1980", "type": "Album" }
+        {
+          "title": "Unknown Pleasures",
+          "year": "1979",
+          "type": "Full-length"
+        },
+        {
+          "title": "Closer",
+          "year": "1980",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Ian Curtis", "instrument": "vocals", "period": "1976-1980" },
-        { "name": "Bernard Sumner", "instrument": "guitar", "period": "1976-1980", "otherBands": ["New Order"] },
-        { "name": "Peter Hook", "instrument": "bass", "period": "1976-1980", "otherBands": ["New Order"] },
-        { "name": "Stephen Morris", "instrument": "drums", "period": "1977-1980", "otherBands": ["New Order"] }
+        {
+          "name": "Ian Curtis",
+          "instrument": "vocals",
+          "period": "1976-1980"
+        },
+        {
+          "name": "Bernard Sumner",
+          "instrument": "guitar",
+          "period": "1976-1980",
+          "otherBands": [
+            "New Order"
+          ]
+        },
+        {
+          "name": "Peter Hook",
+          "instrument": "bass",
+          "period": "1976-1980",
+          "otherBands": [
+            "New Order"
+          ]
+        },
+        {
+          "name": "Stephen Morris",
+          "instrument": "drums",
+          "period": "1977-1980",
+          "otherBands": [
+            "New Order"
+          ]
+        }
       ],
       "type": "Group",
       "description": "Four Manchester teenagers who saw the Sex Pistols at the Lesser Free Trade Hall and went home to form a band. They played punk slowly, and post-punk existed.",
@@ -341,20 +757,60 @@
       "status": "Active",
       "formed": "1976",
       "disbanded": null,
-      "genre": ["hardcore punk", "punk rock", "sludge"],
+      "genre": [
+        "hardcore punk",
+        "punk rock",
+        "sludge"
+      ],
       "disambiguation": "American hardcore band founded by Greg Ginn, originally Panic",
       "image": null,
       "albums": [
-        { "title": "Damaged", "year": "1981", "type": "Album" },
-        { "title": "My War", "year": "1984", "type": "Album" },
-        { "title": "Slip It In", "year": "1984", "type": "Album" },
-        { "title": "In My Head", "year": "1985", "type": "Album" }
+        {
+          "title": "Damaged",
+          "year": "1981",
+          "type": "Full-length"
+        },
+        {
+          "title": "My War",
+          "year": "1984",
+          "type": "Full-length"
+        },
+        {
+          "title": "Slip It In",
+          "year": "1984",
+          "type": "Full-length"
+        },
+        {
+          "title": "In My Head",
+          "year": "1985",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Greg Ginn", "instrument": "guitar", "period": "1976-1986, 2003-" },
-        { "name": "Keith Morris", "instrument": "vocals", "period": "1976-1979", "otherBands": ["Circle Jerks", "OFF!"] },
-        { "name": "Henry Rollins", "instrument": "vocals", "period": "1981-1986" },
-        { "name": "Chuck Dukowski", "instrument": "bass", "period": "1977-1983" }
+        {
+          "name": "Greg Ginn",
+          "instrument": "guitar",
+          "period": "1976-1986, 2003-"
+        },
+        {
+          "name": "Keith Morris",
+          "instrument": "vocals",
+          "period": "1976-1979",
+          "otherBands": [
+            "Circle Jerks",
+            "OFF!"
+          ]
+        },
+        {
+          "name": "Henry Rollins",
+          "instrument": "vocals",
+          "period": "1981-1986"
+        },
+        {
+          "name": "Chuck Dukowski",
+          "instrument": "bass",
+          "period": "1977-1983"
+        }
       ],
       "type": "Group",
       "description": "They built the American touring circuit from nothing, playing halls no promoter would book, and founded SST to release themselves. Raymond Pettibon's four bars became punk's most tattooed logo.",
@@ -368,19 +824,51 @@
       "status": "Active",
       "formed": "1977",
       "disbanded": null,
-      "genre": ["hardcore punk", "afro-punk", "reggae"],
+      "genre": [
+        "hardcore punk",
+        "afro-punk",
+        "reggae"
+      ],
       "disambiguation": "All-Black hardcore band from Washington D.C., formerly a jazz fusion group",
       "image": null,
       "albums": [
-        { "title": "Bad Brains", "year": "1982", "type": "Album" },
-        { "title": "Rock for Light", "year": "1983", "type": "Album" },
-        { "title": "I Against I", "year": "1986", "type": "Album" }
+        {
+          "title": "Bad Brains",
+          "year": "1982",
+          "type": "Full-length"
+        },
+        {
+          "title": "Rock for Light",
+          "year": "1983",
+          "type": "Full-length"
+        },
+        {
+          "title": "I Against I",
+          "year": "1986",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "H.R.", "instrument": "vocals", "period": "1977-" },
-        { "name": "Dr. Know", "instrument": "guitar", "period": "1977-" },
-        { "name": "Darryl Jenifer", "instrument": "bass", "period": "1977-" },
-        { "name": "Earl Hudson", "instrument": "drums", "period": "1977-" }
+        {
+          "name": "H.R.",
+          "instrument": "vocals",
+          "period": "1977-"
+        },
+        {
+          "name": "Dr. Know",
+          "instrument": "guitar",
+          "period": "1977-"
+        },
+        {
+          "name": "Darryl Jenifer",
+          "instrument": "bass",
+          "period": "1977-"
+        },
+        {
+          "name": "Earl Hudson",
+          "instrument": "drums",
+          "period": "1977-"
+        }
       ],
       "type": "Group",
       "description": "Jazz musicians who heard punk and played it faster than anyone thought possible, then stopped mid-set for a dub reggae song. Banned from most D.C. venues, which is how the city got its own scene.",
@@ -394,20 +882,55 @@
       "status": "Split-up",
       "formed": "1977",
       "disbanded": "1984",
-      "genre": ["anarcho-punk", "punk rock"],
+      "genre": [
+        "anarcho-punk",
+        "punk rock"
+      ],
       "disambiguation": "English anarcho-punk collective based at Dial House",
       "image": null,
       "albums": [
-        { "title": "The Feeding of the 5000", "year": "1978", "type": "Album" },
-        { "title": "Stations of the Crass", "year": "1979", "type": "Album" },
-        { "title": "Penis Envy", "year": "1981", "type": "Album" },
-        { "title": "Yes Sir, I Will", "year": "1983", "type": "Album" }
+        {
+          "title": "The Feeding of the 5000",
+          "year": "1978",
+          "type": "Full-length"
+        },
+        {
+          "title": "Stations of the Crass",
+          "year": "1979",
+          "type": "Full-length"
+        },
+        {
+          "title": "Penis Envy",
+          "year": "1981",
+          "type": "Full-length"
+        },
+        {
+          "title": "Yes Sir, I Will",
+          "year": "1983",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Steve Ignorant", "instrument": "vocals", "period": "1977-1984" },
-        { "name": "Penny Rimbaud", "instrument": "drums", "period": "1977-1984" },
-        { "name": "Eve Libertine", "instrument": "vocals", "period": "1978-1984" },
-        { "name": "Gee Vaucher", "instrument": "artwork", "period": "1977-1984" }
+        {
+          "name": "Steve Ignorant",
+          "instrument": "vocals",
+          "period": "1977-1984"
+        },
+        {
+          "name": "Penny Rimbaud",
+          "instrument": "drums",
+          "period": "1977-1984"
+        },
+        {
+          "name": "Eve Libertine",
+          "instrument": "vocals",
+          "period": "1978-1984"
+        },
+        {
+          "name": "Gee Vaucher",
+          "instrument": "artwork",
+          "period": "1977-1984"
+        }
       ],
       "type": "Group",
       "description": "A commune that printed its own records with the price stamped on the sleeve so no shop could overcharge. They took punk's politics literally and made everyone else look like a pose.",
@@ -421,17 +944,41 @@
       "status": "Active",
       "formed": "1977",
       "disbanded": null,
-      "genre": ["d-beat", "hardcore punk", "UK82"],
+      "genre": [
+        "d-beat",
+        "hardcore punk",
+        "UK82"
+      ],
       "disambiguation": "English hardcore band whose drum pattern became the d-beat",
       "image": null,
       "albums": [
-        { "title": "Why", "year": "1981", "type": "EP" },
-        { "title": "Hear Nothing See Nothing Say Nothing", "year": "1982", "type": "Album" }
+        {
+          "title": "Why",
+          "year": "1981",
+          "type": "EP"
+        },
+        {
+          "title": "Hear Nothing See Nothing Say Nothing",
+          "year": "1982",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Cal", "instrument": "vocals", "period": "1977-1986, 1991-2014" },
-        { "name": "Bones", "instrument": "guitar", "period": "1977-" },
-        { "name": "Tezz", "instrument": "drums, guitar", "period": "1977-1983" }
+        {
+          "name": "Cal",
+          "instrument": "vocals",
+          "period": "1977-1986, 1991-2014"
+        },
+        {
+          "name": "Bones",
+          "instrument": "guitar",
+          "period": "1977-"
+        },
+        {
+          "name": "Tezz",
+          "instrument": "drums, guitar",
+          "period": "1977-1983"
+        }
       ],
       "type": "Group",
       "description": "Lyrics stripped to slogans shouted over one relentless drum pattern. That pattern is now called the d-beat and has its own genre, which few bands can claim.",
@@ -445,18 +992,50 @@
       "status": "Active",
       "formed": "1977",
       "disbanded": null,
-      "genre": ["horror punk", "punk rock", "deathrock"],
+      "genre": [
+        "horror punk",
+        "punk rock",
+        "deathrock"
+      ],
       "disambiguation": "American horror punk band founded by Glenn Danzig",
       "image": null,
       "albums": [
-        { "title": "Walk Among Us", "year": "1982", "type": "Album" },
-        { "title": "Earth A.D./Wolfs Blood", "year": "1983", "type": "Album" },
-        { "title": "American Psycho", "year": "1997", "type": "Album" }
+        {
+          "title": "Walk Among Us",
+          "year": "1982",
+          "type": "Full-length"
+        },
+        {
+          "title": "Earth A.D./Wolfs Blood",
+          "year": "1983",
+          "type": "Full-length"
+        },
+        {
+          "title": "American Psycho",
+          "year": "1997",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Glenn Danzig", "instrument": "vocals", "period": "1977-1983", "otherBands": ["Samhain", "Danzig"] },
-        { "name": "Jerry Only", "instrument": "bass", "period": "1977-" },
-        { "name": "Doyle Wolfgang von Frankenstein", "instrument": "guitar", "period": "1980-1983, 2016-" }
+        {
+          "name": "Glenn Danzig",
+          "instrument": "vocals",
+          "period": "1977-1983",
+          "otherBands": [
+            "Samhain",
+            "Danzig"
+          ]
+        },
+        {
+          "name": "Jerry Only",
+          "instrument": "bass",
+          "period": "1977-"
+        },
+        {
+          "name": "Doyle Wolfgang von Frankenstein",
+          "instrument": "guitar",
+          "period": "1980-1983, 2016-"
+        }
       ],
       "type": "Group",
       "description": "B-movie monsters, devilocks and a skull logo more famous than any of the songs. They invented horror punk and sold more shirts after splitting up than records before.",
@@ -470,20 +1049,60 @@
       "status": "Active",
       "formed": "1977",
       "disbanded": null,
-      "genre": ["pop punk", "melodic hardcore", "skate punk"],
+      "genre": [
+        "pop punk",
+        "melodic hardcore",
+        "skate punk"
+      ],
       "disambiguation": "American pop punk band, Milo on the sleeves",
       "image": null,
       "albums": [
-        { "title": "Milo Goes to College", "year": "1982", "type": "Album" },
-        { "title": "I Don't Want to Grow Up", "year": "1985", "type": "Album" },
-        { "title": "ALL", "year": "1987", "type": "Album" },
-        { "title": "Everything Sucks", "year": "1996", "type": "Album" }
+        {
+          "title": "Milo Goes to College",
+          "year": "1982",
+          "type": "Full-length"
+        },
+        {
+          "title": "I Don't Want to Grow Up",
+          "year": "1985",
+          "type": "Full-length"
+        },
+        {
+          "title": "ALL",
+          "year": "1987",
+          "type": "Full-length"
+        },
+        {
+          "title": "Everything Sucks",
+          "year": "1996",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Milo Aukerman", "instrument": "vocals", "period": "1980-" },
-        { "name": "Bill Stevenson", "instrument": "drums", "period": "1977-", "otherBands": ["Black Flag", "ALL"] },
-        { "name": "Karl Alvarez", "instrument": "bass", "period": "1986-" },
-        { "name": "Stephen Egerton", "instrument": "guitar", "period": "1986-" }
+        {
+          "name": "Milo Aukerman",
+          "instrument": "vocals",
+          "period": "1980-"
+        },
+        {
+          "name": "Bill Stevenson",
+          "instrument": "drums",
+          "period": "1977-",
+          "otherBands": [
+            "Black Flag",
+            "ALL"
+          ]
+        },
+        {
+          "name": "Karl Alvarez",
+          "instrument": "bass",
+          "period": "1986-"
+        },
+        {
+          "name": "Stephen Egerton",
+          "instrument": "guitar",
+          "period": "1986-"
+        }
       ],
       "type": "Group",
       "description": "Hardcore speed with melodies, and songs about coffee, food and being rejected. Their singer left to get a PhD in biochemistry, which is the most Descendents fact available.",
@@ -497,18 +1116,46 @@
       "status": "Active",
       "formed": "1978",
       "disbanded": null,
-      "genre": ["post-punk", "art punk", "dub"],
+      "genre": [
+        "post-punk",
+        "art punk",
+        "dub"
+      ],
       "disambiguation": "John Lydon's band after the Sex Pistols, PiL",
       "image": null,
       "albums": [
-        { "title": "Public Image: First Issue", "year": "1978", "type": "Album" },
-        { "title": "Metal Box", "year": "1979", "type": "Album" },
-        { "title": "The Flowers of Romance", "year": "1981", "type": "Album" }
+        {
+          "title": "Public Image: First Issue",
+          "year": "1978",
+          "type": "Full-length"
+        },
+        {
+          "title": "Metal Box",
+          "year": "1979",
+          "type": "Full-length"
+        },
+        {
+          "title": "The Flowers of Romance",
+          "year": "1981",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "John Lydon", "instrument": "vocals", "period": "1978-" },
-        { "name": "Keith Levene", "instrument": "guitar", "period": "1978-1983" },
-        { "name": "Jah Wobble", "instrument": "bass", "period": "1978-1980" }
+        {
+          "name": "John Lydon",
+          "instrument": "vocals",
+          "period": "1978-"
+        },
+        {
+          "name": "Keith Levene",
+          "instrument": "guitar",
+          "period": "1978-1983"
+        },
+        {
+          "name": "Jah Wobble",
+          "instrument": "bass",
+          "period": "1978-1980"
+        }
       ],
       "type": "Group",
       "description": "Lydon's answer to being asked to repeat himself: dub bass, scraped guitar and no choruses. Metal Box came in a film canister because a sleeve would have been too normal.",
@@ -522,17 +1169,41 @@
       "status": "Split-up",
       "formed": "1978",
       "disbanded": "2012",
-      "genre": ["crust punk", "stenchcore", "anarcho-punk"],
+      "genre": [
+        "crust punk",
+        "stenchcore",
+        "anarcho-punk"
+      ],
       "disambiguation": "English band credited with inventing crust punk",
       "image": null,
       "albums": [
-        { "title": "Arise!", "year": "1985", "type": "Album" },
-        { "title": "Monolith", "year": "1987", "type": "Album" },
-        { "title": "Sonic Mass", "year": "2011", "type": "Album" }
+        {
+          "title": "Arise!",
+          "year": "1985",
+          "type": "Full-length"
+        },
+        {
+          "title": "Monolith",
+          "year": "1987",
+          "type": "Full-length"
+        },
+        {
+          "title": "Sonic Mass",
+          "year": "2011",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Rob Miller", "instrument": "bass, vocals", "period": "1978-1987, 2008-2012" },
-        { "name": "Stig Miller", "instrument": "guitar", "period": "1978-1987, 2008-2012" }
+        {
+          "name": "Rob Miller",
+          "instrument": "bass, vocals",
+          "period": "1978-1987, 2008-2012"
+        },
+        {
+          "name": "Stig Miller",
+          "instrument": "guitar",
+          "period": "1978-1987, 2008-2012"
+        }
       ],
       "type": "Group",
       "description": "Anarcho-punk slowed to a crawl and dragged through Motorhead and Black Sabbath. The word crust comes from one of their songs, and the whole genre followed.",
@@ -546,20 +1217,56 @@
       "status": "Active",
       "formed": "1978",
       "disbanded": null,
-      "genre": ["hardcore punk", "punk rock", "surf punk"],
+      "genre": [
+        "hardcore punk",
+        "punk rock",
+        "surf punk"
+      ],
       "disambiguation": "American hardcore band fronted by Jello Biafra until 1986",
       "image": null,
       "albums": [
-        { "title": "Fresh Fruit for Rotting Vegetables", "year": "1980", "type": "Album" },
-        { "title": "Plastic Surgery Disasters", "year": "1982", "type": "Album" },
-        { "title": "Frankenchrist", "year": "1985", "type": "Album" },
-        { "title": "Bedtime for Democracy", "year": "1986", "type": "Album" }
+        {
+          "title": "Fresh Fruit for Rotting Vegetables",
+          "year": "1980",
+          "type": "Full-length"
+        },
+        {
+          "title": "Plastic Surgery Disasters",
+          "year": "1982",
+          "type": "Full-length"
+        },
+        {
+          "title": "Frankenchrist",
+          "year": "1985",
+          "type": "Full-length"
+        },
+        {
+          "title": "Bedtime for Democracy",
+          "year": "1986",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Jello Biafra", "instrument": "vocals", "period": "1978-1986" },
-        { "name": "East Bay Ray", "instrument": "guitar", "period": "1978-1986, 2001-" },
-        { "name": "Klaus Flouride", "instrument": "bass", "period": "1978-1986, 2001-" },
-        { "name": "D.H. Peligro", "instrument": "drums", "period": "1981-1986" }
+        {
+          "name": "Jello Biafra",
+          "instrument": "vocals",
+          "period": "1978-1986"
+        },
+        {
+          "name": "East Bay Ray",
+          "instrument": "guitar",
+          "period": "1978-1986, 2001-"
+        },
+        {
+          "name": "Klaus Flouride",
+          "instrument": "bass",
+          "period": "1978-1986, 2001-"
+        },
+        {
+          "name": "D.H. Peligro",
+          "instrument": "drums",
+          "period": "1981-1986"
+        }
       ],
       "type": "Group",
       "description": "Satire sharp enough to be mistaken for the thing it attacked, over surf guitar played at hardcore speed. An obscenity trial over a poster in Frankenchrist nearly destroyed them.",
@@ -573,16 +1280,36 @@
       "status": "Active",
       "formed": "1978",
       "disbanded": null,
-      "genre": ["Oi!", "street punk", "UK82"],
+      "genre": [
+        "Oi!",
+        "street punk",
+        "UK82"
+      ],
       "disambiguation": "East London Oi! band",
       "image": null,
       "albums": [
-        { "title": "Greatest Hits Vol. 1", "year": "1980", "type": "Album" },
-        { "title": "Greatest Hits Vol. 2", "year": "1980", "type": "Album" }
+        {
+          "title": "Greatest Hits Vol. 1",
+          "year": "1980",
+          "type": "Full-length"
+        },
+        {
+          "title": "Greatest Hits Vol. 2",
+          "year": "1980",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Jeff Turner", "instrument": "vocals", "period": "1978-" },
-        { "name": "Mick Geggus", "instrument": "guitar", "period": "1978-" }
+        {
+          "name": "Jeff Turner",
+          "instrument": "vocals",
+          "period": "1978-"
+        },
+        {
+          "name": "Mick Geggus",
+          "instrument": "guitar",
+          "period": "1978-"
+        }
       ],
       "type": "Group",
       "description": "Football terraces turned into a chorus, sung by teenagers from the docks. Oi! was meant to be punk for the working class punk claimed to be about, and they meant it.",
@@ -596,17 +1323,41 @@
       "status": "Active",
       "formed": "1978",
       "disbanded": null,
-      "genre": ["UK82", "street punk", "d-beat"],
+      "genre": [
+        "UK82",
+        "street punk",
+        "d-beat"
+      ],
       "disambiguation": "Birmingham hardcore punk band, formerly Charged GBH",
       "image": null,
       "albums": [
-        { "title": "City Baby Attacked by Rats", "year": "1982", "type": "Album" },
-        { "title": "City Baby's Revenge", "year": "1983", "type": "Album" }
+        {
+          "title": "City Baby Attacked by Rats",
+          "year": "1982",
+          "type": "Full-length"
+        },
+        {
+          "title": "City Baby's Revenge",
+          "year": "1983",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Colin Abrahall", "instrument": "vocals", "period": "1978-" },
-        { "name": "Colin Blyth", "instrument": "guitar", "period": "1978-" },
-        { "name": "Ross Lomas", "instrument": "bass", "period": "1978-" }
+        {
+          "name": "Colin Abrahall",
+          "instrument": "vocals",
+          "period": "1978-"
+        },
+        {
+          "name": "Colin Blyth",
+          "instrument": "guitar",
+          "period": "1978-"
+        },
+        {
+          "name": "Ross Lomas",
+          "instrument": "bass",
+          "period": "1978-"
+        }
       ],
       "type": "Group",
       "description": "Studded leather, spiked hair and riffs borrowed from metal without admitting it. With Discharge and the Exploited, they are the three names UK82 is built on.",
@@ -620,17 +1371,41 @@
       "status": "Active",
       "formed": "1978",
       "disbanded": null,
-      "genre": ["punk rock", "cowpunk", "street punk"],
+      "genre": [
+        "punk rock",
+        "cowpunk",
+        "street punk"
+      ],
       "disambiguation": "Orange County punk band led by Mike Ness",
       "image": null,
       "albums": [
-        { "title": "Mommy's Little Monster", "year": "1983", "type": "Album" },
-        { "title": "Social Distortion", "year": "1990", "type": "Album" },
-        { "title": "Somewhere Between Heaven and Hell", "year": "1992", "type": "Album" }
+        {
+          "title": "Mommy's Little Monster",
+          "year": "1983",
+          "type": "Full-length"
+        },
+        {
+          "title": "Social Distortion",
+          "year": "1990",
+          "type": "Full-length"
+        },
+        {
+          "title": "Somewhere Between Heaven and Hell",
+          "year": "1992",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Mike Ness", "instrument": "vocals, guitar", "period": "1978-" },
-        { "name": "Dennis Danell", "instrument": "guitar", "period": "1979-2000" }
+        {
+          "name": "Mike Ness",
+          "instrument": "vocals, guitar",
+          "period": "1978-"
+        },
+        {
+          "name": "Dennis Danell",
+          "instrument": "guitar",
+          "period": "1979-2000"
+        }
       ],
       "type": "Group",
       "description": "Orange County hardcore that drifted into Johnny Cash territory and never came back. Tattoos, rockabilly chords and songs about prison and regret.",
@@ -644,16 +1419,37 @@
       "status": "Active",
       "formed": "1979",
       "disbanded": null,
-      "genre": ["UK82", "street punk", "hardcore punk", "crossover thrash"],
+      "genre": [
+        "UK82",
+        "street punk",
+        "hardcore punk",
+        "crossover thrash"
+      ],
       "disambiguation": "Scottish punk band fronted by Wattie Buchan",
       "image": null,
       "albums": [
-        { "title": "Punks Not Dead", "year": "1981", "type": "Album" },
-        { "title": "Troops of Tomorrow", "year": "1982", "type": "Album" },
-        { "title": "Death Before Dishonour", "year": "1987", "type": "Album" }
+        {
+          "title": "Punks Not Dead",
+          "year": "1981",
+          "type": "Full-length"
+        },
+        {
+          "title": "Troops of Tomorrow",
+          "year": "1982",
+          "type": "Full-length"
+        },
+        {
+          "title": "Death Before Dishonour",
+          "year": "1987",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Wattie Buchan", "instrument": "vocals", "period": "1979-" }
+        {
+          "name": "Wattie Buchan",
+          "instrument": "vocals",
+          "period": "1979-"
+        }
       ],
       "type": "Group",
       "description": "The band that put Punks Not Dead on a million jacket backs, then spent the eighties getting faster and heavier until hardcore and thrash met in the middle.",
@@ -667,16 +1463,35 @@
       "status": "Active",
       "formed": "1979",
       "disbanded": null,
-      "genre": ["Oi!", "street punk"],
+      "genre": [
+        "Oi!",
+        "street punk"
+      ],
       "disambiguation": "English Oi! band from South London",
       "image": null,
       "albums": [
-        { "title": "Suburban Rebels", "year": "1983", "type": "Album" },
-        { "title": "Welcome to the Real World", "year": "1988", "type": "Album" }
+        {
+          "title": "Suburban Rebels",
+          "year": "1983",
+          "type": "Full-length"
+        },
+        {
+          "title": "Welcome to the Real World",
+          "year": "1988",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Micky Fitz", "instrument": "vocals", "period": "1979-2016" },
-        { "name": "Steve Whale", "instrument": "guitar", "period": "1980-" }
+        {
+          "name": "Micky Fitz",
+          "instrument": "vocals",
+          "period": "1979-2016"
+        },
+        {
+          "name": "Steve Whale",
+          "instrument": "guitar",
+          "period": "1980-"
+        }
       ],
       "type": "Group",
       "description": "Oi! that went out of its way to say the scene was not for racists, at a time when saying so got you threatened. Pub-singalong choruses with a picket line behind them.",
@@ -690,21 +1505,65 @@
       "status": "Active",
       "formed": "1980",
       "disbanded": null,
-      "genre": ["melodic hardcore", "punk rock", "skate punk"],
+      "genre": [
+        "melodic hardcore",
+        "punk rock",
+        "skate punk"
+      ],
       "disambiguation": "Los Angeles melodic hardcore band, the crossbuster logo",
       "image": null,
       "albums": [
-        { "title": "How Could Hell Be Any Worse?", "year": "1982", "type": "Album" },
-        { "title": "Suffer", "year": "1988", "type": "Album" },
-        { "title": "No Control", "year": "1989", "type": "Album" },
-        { "title": "Against the Grain", "year": "1990", "type": "Album" },
-        { "title": "Stranger Than Fiction", "year": "1994", "type": "Album" }
+        {
+          "title": "How Could Hell Be Any Worse?",
+          "year": "1982",
+          "type": "Full-length"
+        },
+        {
+          "title": "Suffer",
+          "year": "1988",
+          "type": "Full-length"
+        },
+        {
+          "title": "No Control",
+          "year": "1989",
+          "type": "Full-length"
+        },
+        {
+          "title": "Against the Grain",
+          "year": "1990",
+          "type": "Full-length"
+        },
+        {
+          "title": "Stranger Than Fiction",
+          "year": "1994",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Greg Graffin", "instrument": "vocals", "period": "1980-" },
-        { "name": "Brett Gurewitz", "instrument": "guitar", "period": "1980-1994, 2001-" },
-        { "name": "Jay Bentley", "instrument": "bass", "period": "1980-" },
-        { "name": "Brian Baker", "instrument": "guitar", "period": "1994-", "otherBands": ["Minor Threat", "Dag Nasty"] }
+        {
+          "name": "Greg Graffin",
+          "instrument": "vocals",
+          "period": "1980-"
+        },
+        {
+          "name": "Brett Gurewitz",
+          "instrument": "guitar",
+          "period": "1980-1994, 2001-"
+        },
+        {
+          "name": "Jay Bentley",
+          "instrument": "bass",
+          "period": "1980-"
+        },
+        {
+          "name": "Brian Baker",
+          "instrument": "guitar",
+          "period": "1994-",
+          "otherBands": [
+            "Minor Threat",
+            "Dag Nasty"
+          ]
+        }
       ],
       "type": "Group",
       "description": "Three-part vocal harmonies, a PhD-level vocabulary and the guitarist who founded Epitaph, the label that later funded half of nineties punk.",
@@ -718,19 +1577,57 @@
       "status": "Split-up",
       "formed": "1980",
       "disbanded": "1983",
-      "genre": ["hardcore punk", "straight edge"],
+      "genre": [
+        "hardcore punk",
+        "straight edge"
+      ],
       "disambiguation": "D.C. hardcore band that named straight edge",
       "image": null,
       "albums": [
-        { "title": "Minor Threat", "year": "1981", "type": "EP" },
-        { "title": "In My Eyes", "year": "1981", "type": "EP" },
-        { "title": "Out of Step", "year": "1983", "type": "Album" }
+        {
+          "title": "Minor Threat",
+          "year": "1981",
+          "type": "EP"
+        },
+        {
+          "title": "In My Eyes",
+          "year": "1981",
+          "type": "EP"
+        },
+        {
+          "title": "Out of Step",
+          "year": "1983",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Ian MacKaye", "instrument": "vocals", "period": "1980-1983", "otherBands": ["Fugazi", "The Teen Idles"] },
-        { "name": "Lyle Preslar", "instrument": "guitar", "period": "1980-1983" },
-        { "name": "Brian Baker", "instrument": "bass", "period": "1980-1983", "otherBands": ["Bad Religion"] },
-        { "name": "Jeff Nelson", "instrument": "drums", "period": "1980-1983" }
+        {
+          "name": "Ian MacKaye",
+          "instrument": "vocals",
+          "period": "1980-1983",
+          "otherBands": [
+            "Fugazi",
+            "The Teen Idles"
+          ]
+        },
+        {
+          "name": "Lyle Preslar",
+          "instrument": "guitar",
+          "period": "1980-1983"
+        },
+        {
+          "name": "Brian Baker",
+          "instrument": "bass",
+          "period": "1980-1983",
+          "otherBands": [
+            "Bad Religion"
+          ]
+        },
+        {
+          "name": "Jeff Nelson",
+          "instrument": "drums",
+          "period": "1980-1983"
+        }
       ],
       "type": "Group",
       "description": "Three years, about thirty minutes of music, and an entire subculture. A forty-six second song called Straight Edge gave a name to not drinking, which MacKaye spent decades insisting was never meant as a rule.",
@@ -744,19 +1641,51 @@
       "status": "Split-up",
       "formed": "1980",
       "disbanded": "1985",
-      "genre": ["hardcore punk", "art punk", "funk"],
+      "genre": [
+        "hardcore punk",
+        "art punk",
+        "funk"
+      ],
       "disambiguation": "California trio, we jam econo",
       "image": null,
       "albums": [
-        { "title": "The Punch Line", "year": "1981", "type": "Album" },
-        { "title": "What Makes a Man Start Fires?", "year": "1983", "type": "Album" },
-        { "title": "Double Nickels on the Dime", "year": "1984", "type": "Album" },
-        { "title": "3-Way Tie (For Last)", "year": "1985", "type": "Album" }
+        {
+          "title": "The Punch Line",
+          "year": "1981",
+          "type": "Full-length"
+        },
+        {
+          "title": "What Makes a Man Start Fires?",
+          "year": "1983",
+          "type": "Full-length"
+        },
+        {
+          "title": "Double Nickels on the Dime",
+          "year": "1984",
+          "type": "Full-length"
+        },
+        {
+          "title": "3-Way Tie (For Last)",
+          "year": "1985",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "D. Boon", "instrument": "guitar, vocals", "period": "1980-1985" },
-        { "name": "Mike Watt", "instrument": "bass", "period": "1980-1985" },
-        { "name": "George Hurley", "instrument": "drums", "period": "1980-1985" }
+        {
+          "name": "D. Boon",
+          "instrument": "guitar, vocals",
+          "period": "1980-1985"
+        },
+        {
+          "name": "Mike Watt",
+          "instrument": "bass",
+          "period": "1980-1985"
+        },
+        {
+          "name": "George Hurley",
+          "instrument": "drums",
+          "period": "1980-1985"
+        }
       ],
       "type": "Group",
       "description": "Forty-three songs on a double album, most under ninety seconds, built from funk, jazz and politics. We jam econo was a philosophy, not a slogan. It ended when D. Boon died in a van crash.",
@@ -770,17 +1699,41 @@
       "status": "Active",
       "formed": "1980",
       "disbanded": null,
-      "genre": ["crossover thrash", "hardcore punk", "skate punk"],
+      "genre": [
+        "crossover thrash",
+        "hardcore punk",
+        "skate punk"
+      ],
       "disambiguation": "Venice crossover band led by Mike Muir",
       "image": null,
       "albums": [
-        { "title": "Suicidal Tendencies", "year": "1983", "type": "Album" },
-        { "title": "Join the Army", "year": "1987", "type": "Album" },
-        { "title": "How Will I Laugh Tomorrow When I Can't Even Smile Today", "year": "1988", "type": "Album" }
+        {
+          "title": "Suicidal Tendencies",
+          "year": "1983",
+          "type": "Full-length"
+        },
+        {
+          "title": "Join the Army",
+          "year": "1987",
+          "type": "Full-length"
+        },
+        {
+          "title": "How Will I Laugh Tomorrow When I Can't Even Smile Today",
+          "year": "1988",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Mike Muir", "instrument": "vocals", "period": "1980-" },
-        { "name": "Rocky George", "instrument": "guitar", "period": "1983-1995" }
+        {
+          "name": "Mike Muir",
+          "instrument": "vocals",
+          "period": "1980-"
+        },
+        {
+          "name": "Rocky George",
+          "instrument": "guitar",
+          "period": "1983-1995"
+        }
       ],
       "type": "Group",
       "description": "Institutionalized put skate punk on MTV in 1983. Hardcore kids called them metal and metal kids called them punk, which is roughly the definition of crossover.",
@@ -794,13 +1747,29 @@
       "status": "Split-up",
       "formed": "1981",
       "disbanded": "1993",
-      "genre": ["d-beat", "Swedish Hardcore", "kangpunk"],
+      "genre": [
+        "d-beat",
+        "Swedish Hardcore",
+        "kangpunk"
+      ],
       "disambiguation": "Swedish d-beat band, founders of kangpunk",
       "image": "/images/anti-cimex.jpg",
       "albums": [
-        { "title": "Victims of a Bomb Raid", "year": "1984", "type": "EP" },
-        { "title": "Absolut Country of Sweden", "year": "1990", "type": "Album" },
-        { "title": "Scandinavian Jawbreaker", "year": "1993", "type": "Album" }
+        {
+          "title": "Victims of a Bomb Raid",
+          "year": "1984",
+          "type": "EP"
+        },
+        {
+          "title": "Absolut Country of Sweden",
+          "year": "1990",
+          "type": "Full-length"
+        },
+        {
+          "title": "Scandinavian Jawbreaker",
+          "year": "1993",
+          "type": "Full-length"
+        }
       ],
       "members": [],
       "type": "Group",
@@ -815,11 +1784,19 @@
       "status": "Split-up",
       "formed": "1981",
       "disbanded": "1985",
-      "genre": ["thrashcore", "powerviolence", "hardcore punk"],
+      "genre": [
+        "thrashcore",
+        "powerviolence",
+        "hardcore punk"
+      ],
       "disambiguation": "Massachusetts band whose 1984 demo predates powerviolence",
       "image": null,
       "albums": [
-        { "title": "Drop Dead", "year": "1984", "type": "Demo" }
+        {
+          "title": "Drop Dead",
+          "year": "1984",
+          "type": "Demo"
+        }
       ],
       "members": [],
       "type": "Group",
@@ -834,15 +1811,30 @@
       "status": "Split-up",
       "formed": "1980",
       "disbanded": "1985",
-      "genre": ["Japanese Hardcore", "punk rock"],
+      "genre": [
+        "Japanese Hardcore",
+        "punk rock"
+      ],
       "disambiguation": "Japanese punk band led by Michiro Endo",
       "image": null,
       "albums": [
-        { "title": "Trash", "year": "1981", "type": "Album" },
-        { "title": "Stop Jap", "year": "1982", "type": "Album" }
+        {
+          "title": "Trash",
+          "year": "1981",
+          "type": "Full-length"
+        },
+        {
+          "title": "Stop Jap",
+          "year": "1982",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Michiro Endo", "instrument": "vocals", "period": "1980-1985" }
+        {
+          "name": "Michiro Endo",
+          "instrument": "vocals",
+          "period": "1980-1985"
+        }
       ],
       "type": "Group",
       "description": "The band that made Japanese punk notorious, as much for what was thrown at the audience as for the songs. Japan's hardcore scene starts here.",
@@ -856,16 +1848,34 @@
       "status": "Active",
       "formed": "1981",
       "disbanded": null,
-      "genre": ["Japanese Hardcore", "crossover thrash", "hardcore punk"],
+      "genre": [
+        "Japanese Hardcore",
+        "crossover thrash",
+        "hardcore punk"
+      ],
       "disambiguation": "Japanese hardcore band fronted by Sakevi Yokoyama",
       "image": null,
       "albums": [
-        { "title": "Detestation", "type": "Album" },
-        { "title": "Military Affairs Neurotic", "type": "Album" }
+        {
+          "title": "Detestation",
+          "type": "Full-length"
+        },
+        {
+          "title": "Military Affairs Neurotic",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Sakevi Yokoyama", "instrument": "vocals", "period": "1981-" },
-        { "name": "Randy Uchida", "instrument": "guitar", "period": "1981-1987" }
+        {
+          "name": "Sakevi Yokoyama",
+          "instrument": "vocals",
+          "period": "1981-"
+        },
+        {
+          "name": "Randy Uchida",
+          "instrument": "guitar",
+          "period": "1981-1987"
+        }
       ],
       "type": "Group",
       "description": "Hardcore welded to heavy metal guitar solos years before crossover was a word, with artwork and a live reputation that kept them half-legendary and half-unreleasable.",
@@ -879,15 +1889,31 @@
       "status": "Active",
       "formed": "1981",
       "disbanded": null,
-      "genre": ["Brazilian Hardcore", "crossover thrash", "hardcore punk"],
+      "genre": [
+        "Brazilian Hardcore",
+        "crossover thrash",
+        "hardcore punk"
+      ],
       "disambiguation": "Brazilian hardcore band, RxDxPx",
       "image": null,
       "albums": [
-        { "title": "Crucificados Pelo Sistema", "year": "1984", "type": "Album" },
-        { "title": "Brasil", "year": "1989", "type": "Album" }
+        {
+          "title": "Crucificados Pelo Sistema",
+          "year": "1984",
+          "type": "Full-length"
+        },
+        {
+          "title": "Brasil",
+          "year": "1989",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Joao Gordo", "instrument": "vocals", "period": "1982-" }
+        {
+          "name": "Joao Gordo",
+          "instrument": "vocals",
+          "period": "1982-"
+        }
       ],
       "type": "Group",
       "description": "Brazil's hardcore institution: dictatorship-era fury that kept going for forty years and turned into the loudest crossover band in South America.",
@@ -901,19 +1927,51 @@
       "status": "Active",
       "formed": "1981",
       "disbanded": null,
-      "genre": ["grindcore", "crust punk", "d-beat"],
+      "genre": [
+        "grindcore",
+        "crust punk",
+        "d-beat"
+      ],
       "disambiguation": "English grindcore band, Scum and You Suffer",
       "image": null,
       "albums": [
-        { "title": "Scum", "year": "1987", "type": "Album" },
-        { "title": "From Enslavement to Obliteration", "year": "1988", "type": "Album" },
-        { "title": "Harmony Corruption", "year": "1990", "type": "Album" }
+        {
+          "title": "Scum",
+          "year": "1987",
+          "type": "Full-length"
+        },
+        {
+          "title": "From Enslavement to Obliteration",
+          "year": "1988",
+          "type": "Full-length"
+        },
+        {
+          "title": "Harmony Corruption",
+          "year": "1990",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Barney Greenway", "instrument": "vocals", "period": "1989-" },
-        { "name": "Shane Embury", "instrument": "bass", "period": "1987-" },
-        { "name": "Mitch Harris", "instrument": "guitar", "period": "1989-" },
-        { "name": "Danny Herrera", "instrument": "drums", "period": "1991-" }
+        {
+          "name": "Barney Greenway",
+          "instrument": "vocals",
+          "period": "1989-"
+        },
+        {
+          "name": "Shane Embury",
+          "instrument": "bass",
+          "period": "1987-"
+        },
+        {
+          "name": "Mitch Harris",
+          "instrument": "guitar",
+          "period": "1989-"
+        },
+        {
+          "name": "Danny Herrera",
+          "instrument": "drums",
+          "period": "1991-"
+        }
       ],
       "type": "Group",
       "description": "Anarcho-punk accelerated past the point of structure. You Suffer lasts about one second and holds the record for the shortest song ever recorded, which tells you the whole project.",
@@ -927,17 +1985,41 @@
       "status": "Active",
       "formed": "1982",
       "disbanded": null,
-      "genre": ["crossover thrash", "hardcore punk", "thrashcore"],
+      "genre": [
+        "crossover thrash",
+        "hardcore punk",
+        "thrashcore"
+      ],
       "disambiguation": "Dirty Rotten Imbeciles, the dancing skater logo",
       "image": null,
       "albums": [
-        { "title": "Dirty Rotten LP", "year": "1983", "type": "Album" },
-        { "title": "Dealing with It", "year": "1985", "type": "Album" },
-        { "title": "Crossover", "year": "1987", "type": "Album" }
+        {
+          "title": "Dirty Rotten LP",
+          "year": "1983",
+          "type": "Full-length"
+        },
+        {
+          "title": "Dealing with It",
+          "year": "1985",
+          "type": "Full-length"
+        },
+        {
+          "title": "Crossover",
+          "year": "1987",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Kurt Brecht", "instrument": "vocals", "period": "1982-" },
-        { "name": "Spike Cassidy", "instrument": "guitar", "period": "1982-" }
+        {
+          "name": "Kurt Brecht",
+          "instrument": "vocals",
+          "period": "1982-"
+        },
+        {
+          "name": "Spike Cassidy",
+          "instrument": "guitar",
+          "period": "1982-"
+        }
       ],
       "type": "Group",
       "description": "Twenty-two songs in eighteen minutes on their first record, then an album literally called Crossover that named a genre. The dancing skater stencil is on more battle jackets than most logos.",
@@ -951,19 +2033,51 @@
       "status": "Split-up",
       "formed": "1983",
       "disbanded": "2024",
-      "genre": ["skate punk", "melodic hardcore", "ska punk"],
+      "genre": [
+        "skate punk",
+        "melodic hardcore",
+        "ska punk"
+      ],
       "disambiguation": "Los Angeles skate punk band, Fat Wreck Chords",
       "image": null,
       "albums": [
-        { "title": "Punk in Drublic", "year": "1994", "type": "Album" },
-        { "title": "So Long and Thanks for All the Shoes", "year": "1997", "type": "Album" },
-        { "title": "The Decline", "year": "1999", "type": "EP" }
+        {
+          "title": "Punk in Drublic",
+          "year": "1994",
+          "type": "Full-length"
+        },
+        {
+          "title": "So Long and Thanks for All the Shoes",
+          "year": "1997",
+          "type": "Full-length"
+        },
+        {
+          "title": "The Decline",
+          "year": "1999",
+          "type": "EP"
+        }
       ],
       "members": [
-        { "name": "Fat Mike", "instrument": "vocals, bass", "period": "1983-2024" },
-        { "name": "Eric Melvin", "instrument": "guitar", "period": "1983-2024" },
-        { "name": "El Hefe", "instrument": "guitar, trumpet", "period": "1991-2024" },
-        { "name": "Erik Sandin", "instrument": "drums", "period": "1983-2024" }
+        {
+          "name": "Fat Mike",
+          "instrument": "vocals, bass",
+          "period": "1983-2024"
+        },
+        {
+          "name": "Eric Melvin",
+          "instrument": "guitar",
+          "period": "1983-2024"
+        },
+        {
+          "name": "El Hefe",
+          "instrument": "guitar, trumpet",
+          "period": "1991-2024"
+        },
+        {
+          "name": "Erik Sandin",
+          "instrument": "drums",
+          "period": "1983-2024"
+        }
       ],
       "type": "Group",
       "description": "Forty years without ever signing to a major label, and a singer who ran Fat Wreck Chords on the side. They played their last shows in 2024 and stopped on their own terms.",
@@ -977,18 +2091,52 @@
       "status": "Split-up",
       "formed": "1984",
       "disbanded": "1986",
-      "genre": ["emocore", "post-hardcore", "hardcore punk"],
+      "genre": [
+        "emocore",
+        "post-hardcore",
+        "hardcore punk"
+      ],
       "disambiguation": "D.C. band of the Revolution Summer, the first called emo",
       "image": null,
       "albums": [
-        { "title": "Rites of Spring", "year": "1985", "type": "Album" },
-        { "title": "All Through a Life", "year": "1987", "type": "EP" }
+        {
+          "title": "Rites of Spring",
+          "year": "1985",
+          "type": "Full-length"
+        },
+        {
+          "title": "All Through a Life",
+          "year": "1987",
+          "type": "EP"
+        }
       ],
       "members": [
-        { "name": "Guy Picciotto", "instrument": "vocals, guitar", "period": "1984-1986", "otherBands": ["Fugazi"] },
-        { "name": "Eddie Janney", "instrument": "guitar", "period": "1984-1986" },
-        { "name": "Mike Fellows", "instrument": "bass", "period": "1984-1986" },
-        { "name": "Brendan Canty", "instrument": "drums", "period": "1984-1986", "otherBands": ["Fugazi"] }
+        {
+          "name": "Guy Picciotto",
+          "instrument": "vocals, guitar",
+          "period": "1984-1986",
+          "otherBands": [
+            "Fugazi"
+          ]
+        },
+        {
+          "name": "Eddie Janney",
+          "instrument": "guitar",
+          "period": "1984-1986"
+        },
+        {
+          "name": "Mike Fellows",
+          "instrument": "bass",
+          "period": "1984-1986"
+        },
+        {
+          "name": "Brendan Canty",
+          "instrument": "drums",
+          "period": "1984-1986",
+          "otherBands": [
+            "Fugazi"
+          ]
+        }
       ],
       "type": "Group",
       "description": "About fifteen shows in two years. They turned hardcore's anger inward and got called emocore for it, a label the band never wanted and could not escape.",
@@ -1002,17 +2150,46 @@
       "status": "Split-up",
       "formed": "1987",
       "disbanded": "1989",
-      "genre": ["ska punk", "hardcore punk"],
+      "genre": [
+        "ska punk",
+        "hardcore punk"
+      ],
       "disambiguation": "Berkeley ska punk band of the Gilman Street scene",
       "image": null,
       "albums": [
-        { "title": "Energy", "year": "1989", "type": "Album" }
+        {
+          "title": "Energy",
+          "year": "1989",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Jesse Michaels", "instrument": "vocals", "period": "1987-1989" },
-        { "name": "Tim Armstrong", "instrument": "guitar", "period": "1987-1989", "otherBands": ["Rancid"] },
-        { "name": "Matt Freeman", "instrument": "bass", "period": "1987-1989", "otherBands": ["Rancid"] },
-        { "name": "Dave Mello", "instrument": "drums", "period": "1987-1989" }
+        {
+          "name": "Jesse Michaels",
+          "instrument": "vocals",
+          "period": "1987-1989"
+        },
+        {
+          "name": "Tim Armstrong",
+          "instrument": "guitar",
+          "period": "1987-1989",
+          "otherBands": [
+            "Rancid"
+          ]
+        },
+        {
+          "name": "Matt Freeman",
+          "instrument": "bass",
+          "period": "1987-1989",
+          "otherBands": [
+            "Rancid"
+          ]
+        },
+        {
+          "name": "Dave Mello",
+          "instrument": "drums",
+          "period": "1987-1989"
+        }
       ],
       "type": "Group",
       "description": "Two years, one album, and the sound every nineties ska punk band started from. They split the week Energy came out, and two of them went on to form Rancid.",
@@ -1026,21 +2203,70 @@
       "status": "On hiatus",
       "formed": "1987",
       "disbanded": null,
-      "genre": ["post-hardcore", "hardcore punk", "art punk"],
+      "genre": [
+        "post-hardcore",
+        "hardcore punk",
+        "art punk"
+      ],
       "disambiguation": "D.C. post-hardcore band on Dischord",
       "image": null,
       "albums": [
-        { "title": "13 Songs", "year": "1989", "type": "Album" },
-        { "title": "Repeater", "year": "1990", "type": "Album" },
-        { "title": "In on the Kill Taker", "year": "1993", "type": "Album" },
-        { "title": "Red Medicine", "year": "1995", "type": "Album" },
-        { "title": "The Argument", "year": "2001", "type": "Album" }
+        {
+          "title": "13 Songs",
+          "year": "1989",
+          "type": "Full-length"
+        },
+        {
+          "title": "Repeater",
+          "year": "1990",
+          "type": "Full-length"
+        },
+        {
+          "title": "In on the Kill Taker",
+          "year": "1993",
+          "type": "Full-length"
+        },
+        {
+          "title": "Red Medicine",
+          "year": "1995",
+          "type": "Full-length"
+        },
+        {
+          "title": "The Argument",
+          "year": "2001",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Ian MacKaye", "instrument": "vocals, guitar", "period": "1987-2003", "otherBands": ["Minor Threat"] },
-        { "name": "Guy Picciotto", "instrument": "vocals, guitar", "period": "1987-2003", "otherBands": ["Rites of Spring"] },
-        { "name": "Joe Lally", "instrument": "bass", "period": "1987-2003" },
-        { "name": "Brendan Canty", "instrument": "drums", "period": "1987-2003", "otherBands": ["Rites of Spring"] }
+        {
+          "name": "Ian MacKaye",
+          "instrument": "vocals, guitar",
+          "period": "1987-2003",
+          "otherBands": [
+            "Minor Threat"
+          ]
+        },
+        {
+          "name": "Guy Picciotto",
+          "instrument": "vocals, guitar",
+          "period": "1987-2003",
+          "otherBands": [
+            "Rites of Spring"
+          ]
+        },
+        {
+          "name": "Joe Lally",
+          "instrument": "bass",
+          "period": "1987-2003"
+        },
+        {
+          "name": "Brendan Canty",
+          "instrument": "drums",
+          "period": "1987-2003",
+          "otherBands": [
+            "Rites of Spring"
+          ]
+        }
       ],
       "type": "Group",
       "description": "Five dollar shows, ten dollar records, no merchandise and no major labels, for fifteen years. The proof that punk's ethics could survive being successful.",
@@ -1054,12 +2280,24 @@
       "status": "Active",
       "formed": "1987",
       "disbanded": null,
-      "genre": ["crust punk", "d-beat", "anarcho-punk"],
+      "genre": [
+        "crust punk",
+        "d-beat",
+        "anarcho-punk"
+      ],
       "disambiguation": "English crust punk band from Birmingham",
       "image": null,
       "albums": [
-        { "title": "War Crimes (Inhuman Beings)", "year": "1988", "type": "Album" },
-        { "title": "Police Bastard", "year": "1989", "type": "EP" }
+        {
+          "title": "War Crimes (Inhuman Beings)",
+          "year": "1988",
+          "type": "Full-length"
+        },
+        {
+          "title": "Police Bastard",
+          "year": "1989",
+          "type": "EP"
+        }
       ],
       "members": [],
       "type": "Group",
@@ -1074,18 +2312,56 @@
       "status": "Split-up",
       "formed": "1989",
       "disbanded": "1995",
-      "genre": ["midwest emo", "emocore", "post-hardcore"],
+      "genre": [
+        "midwest emo",
+        "emocore",
+        "post-hardcore"
+      ],
       "disambiguation": "Chicago emo band of the Kinsella brothers",
       "image": null,
       "albums": [
-        { "title": "Shmap'n Shmazz", "year": "1995", "type": "Album" },
-        { "title": "Analphabetapolothology", "year": "1998", "type": "Compilation" }
+        {
+          "title": "Shmap'n Shmazz",
+          "year": "1995",
+          "type": "Full-length"
+        },
+        {
+          "title": "Analphabetapolothology",
+          "year": "1998",
+          "type": "Compilation"
+        }
       ],
       "members": [
-        { "name": "Tim Kinsella", "instrument": "vocals", "period": "1989-1995", "otherBands": ["Joan of Arc"] },
-        { "name": "Mike Kinsella", "instrument": "drums", "period": "1989-1995", "otherBands": ["American Football", "Owen"] },
-        { "name": "Davey von Bohlen", "instrument": "guitar", "period": "1991-1995", "otherBands": ["The Promise Ring"] },
-        { "name": "Victor Villarreal", "instrument": "guitar", "period": "1991-1995" }
+        {
+          "name": "Tim Kinsella",
+          "instrument": "vocals",
+          "period": "1989-1995",
+          "otherBands": [
+            "Joan of Arc"
+          ]
+        },
+        {
+          "name": "Mike Kinsella",
+          "instrument": "drums",
+          "period": "1989-1995",
+          "otherBands": [
+            "American Football",
+            "Owen"
+          ]
+        },
+        {
+          "name": "Davey von Bohlen",
+          "instrument": "guitar",
+          "period": "1991-1995",
+          "otherBands": [
+            "The Promise Ring"
+          ]
+        },
+        {
+          "name": "Victor Villarreal",
+          "instrument": "guitar",
+          "period": "1991-1995"
+        }
       ],
       "type": "Group",
       "description": "Teenagers playing twinkling guitar lines under a singer who yelped rather than sang. Nobody bought it at the time; every midwest emo band since has taken notes.",
@@ -1099,18 +2375,49 @@
       "status": "Active",
       "formed": "1990",
       "disbanded": null,
-      "genre": ["riot grrrl", "punk rock", "hardcore punk"],
+      "genre": [
+        "riot grrrl",
+        "punk rock",
+        "hardcore punk"
+      ],
       "disambiguation": "Olympia band at the centre of riot grrrl",
       "image": null,
       "albums": [
-        { "title": "Pussy Whipped", "year": "1993", "type": "Album" },
-        { "title": "Reject All American", "year": "1996", "type": "Album" }
+        {
+          "title": "Pussy Whipped",
+          "year": "1993",
+          "type": "Full-length"
+        },
+        {
+          "title": "Reject All American",
+          "year": "1996",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Kathleen Hanna", "instrument": "vocals", "period": "1990-1997, 2019-", "otherBands": ["Le Tigre"] },
-        { "name": "Tobi Vail", "instrument": "drums", "period": "1990-1997, 2019-" },
-        { "name": "Kathi Wilcox", "instrument": "bass", "period": "1990-1997, 2019-" },
-        { "name": "Billy Karren", "instrument": "guitar", "period": "1990-1997" }
+        {
+          "name": "Kathleen Hanna",
+          "instrument": "vocals",
+          "period": "1990-1997, 2019-",
+          "otherBands": [
+            "Le Tigre"
+          ]
+        },
+        {
+          "name": "Tobi Vail",
+          "instrument": "drums",
+          "period": "1990-1997, 2019-"
+        },
+        {
+          "name": "Kathi Wilcox",
+          "instrument": "bass",
+          "period": "1990-1997, 2019-"
+        },
+        {
+          "name": "Billy Karren",
+          "instrument": "guitar",
+          "period": "1990-1997"
+        }
       ],
       "type": "Group",
       "description": "Girls to the front was an instruction given from the stage, not a slogan. They wrote the zines, booked the shows and made riot grrrl a movement rather than a sound.",
@@ -1124,20 +2431,56 @@
       "status": "Active",
       "formed": "1990",
       "disbanded": null,
-      "genre": ["metalcore", "mathcore", "post-hardcore"],
+      "genre": [
+        "metalcore",
+        "mathcore",
+        "post-hardcore"
+      ],
       "disambiguation": "Massachusetts metalcore band, Jane Doe",
       "image": null,
       "albums": [
-        { "title": "Jane Doe", "year": "2001", "type": "Album" },
-        { "title": "You Fail Me", "year": "2004", "type": "Album" },
-        { "title": "Axe to Fall", "year": "2009", "type": "Album" },
-        { "title": "The Dusk in Us", "year": "2017", "type": "Album" }
+        {
+          "title": "Jane Doe",
+          "year": "2001",
+          "type": "Full-length"
+        },
+        {
+          "title": "You Fail Me",
+          "year": "2004",
+          "type": "Full-length"
+        },
+        {
+          "title": "Axe to Fall",
+          "year": "2009",
+          "type": "Full-length"
+        },
+        {
+          "title": "The Dusk in Us",
+          "year": "2017",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Jacob Bannon", "instrument": "vocals", "period": "1990-" },
-        { "name": "Kurt Ballou", "instrument": "guitar", "period": "1990-" },
-        { "name": "Nate Newton", "instrument": "bass", "period": "1999-" },
-        { "name": "Ben Koller", "instrument": "drums", "period": "1999-" }
+        {
+          "name": "Jacob Bannon",
+          "instrument": "vocals",
+          "period": "1990-"
+        },
+        {
+          "name": "Kurt Ballou",
+          "instrument": "guitar",
+          "period": "1990-"
+        },
+        {
+          "name": "Nate Newton",
+          "instrument": "bass",
+          "period": "1999-"
+        },
+        {
+          "name": "Ben Koller",
+          "instrument": "drums",
+          "period": "1999-"
+        }
       ],
       "type": "Group",
       "description": "Hardcore pulled apart and reassembled wrong: time signatures that trip, a guitarist who became one of the genre's defining producers, and Jane Doe's face on a thousand shirts.",
@@ -1151,19 +2494,57 @@
       "status": "Active",
       "formed": "1991",
       "disbanded": null,
-      "genre": ["street punk", "punk rock", "ska punk"],
+      "genre": [
+        "street punk",
+        "punk rock",
+        "ska punk"
+      ],
       "disambiguation": "Berkeley street punk band formed out of Operation Ivy",
       "image": null,
       "albums": [
-        { "title": "Let's Go", "year": "1994", "type": "Album" },
-        { "title": "...And Out Come the Wolves", "year": "1995", "type": "Album" },
-        { "title": "Life Won't Wait", "year": "1998", "type": "Album" }
+        {
+          "title": "Let's Go",
+          "year": "1994",
+          "type": "Full-length"
+        },
+        {
+          "title": "...And Out Come the Wolves",
+          "year": "1995",
+          "type": "Full-length"
+        },
+        {
+          "title": "Life Won't Wait",
+          "year": "1998",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Tim Armstrong", "instrument": "vocals, guitar", "period": "1991-", "otherBands": ["Operation Ivy"] },
-        { "name": "Matt Freeman", "instrument": "bass", "period": "1991-", "otherBands": ["Operation Ivy"] },
-        { "name": "Lars Frederiksen", "instrument": "guitar", "period": "1993-" },
-        { "name": "Branden Steineckert", "instrument": "drums", "period": "2006-" }
+        {
+          "name": "Tim Armstrong",
+          "instrument": "vocals, guitar",
+          "period": "1991-",
+          "otherBands": [
+            "Operation Ivy"
+          ]
+        },
+        {
+          "name": "Matt Freeman",
+          "instrument": "bass",
+          "period": "1991-",
+          "otherBands": [
+            "Operation Ivy"
+          ]
+        },
+        {
+          "name": "Lars Frederiksen",
+          "instrument": "guitar",
+          "period": "1993-"
+        },
+        {
+          "name": "Branden Steineckert",
+          "instrument": "drums",
+          "period": "2006-"
+        }
       ],
       "type": "Group",
       "description": "The band that turned down a major label at the exact moment Green Day signed one. Mohawks, ska horns and the Clash's record collection.",
@@ -1177,16 +2558,35 @@
       "status": "Active",
       "formed": "1991",
       "disbanded": null,
-      "genre": ["queercore", "pop punk"],
+      "genre": [
+        "queercore",
+        "pop punk"
+      ],
       "disambiguation": "San Francisco queercore band on Lookout!",
       "image": null,
       "albums": [
-        { "title": "Undressed", "year": "1993", "type": "Album" },
-        { "title": "Deflowered", "year": "1994", "type": "Album" }
+        {
+          "title": "Undressed",
+          "year": "1993",
+          "type": "Full-length"
+        },
+        {
+          "title": "Deflowered",
+          "year": "1994",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Jon Ginoli", "instrument": "vocals, guitar", "period": "1991-" },
-        { "name": "Chris Freeman", "instrument": "bass", "period": "1991-" }
+        {
+          "name": "Jon Ginoli",
+          "instrument": "vocals, guitar",
+          "period": "1991-"
+        },
+        {
+          "name": "Chris Freeman",
+          "instrument": "bass",
+          "period": "1991-"
+        }
       ],
       "type": "Group",
       "description": "Pop punk with explicitly gay lyrics, opening Green Day's biggest tour in 1994 and playing it to arenas of teenagers who had never heard anything like it.",
@@ -1200,17 +2600,41 @@
       "status": "Active",
       "formed": "1992",
       "disbanded": null,
-      "genre": ["post-hardcore", "hardcore punk", "Swedish Hardcore"],
+      "genre": [
+        "post-hardcore",
+        "hardcore punk",
+        "Swedish Hardcore"
+      ],
       "disambiguation": "Swedish hardcore band from Umea, The Shape of Punk to Come",
       "image": null,
       "albums": [
-        { "title": "Songs to Fan the Flames of Discontent", "year": "1996", "type": "Album" },
-        { "title": "The Shape of Punk to Come", "year": "1998", "type": "Album" },
-        { "title": "Freedom", "year": "2015", "type": "Album" }
+        {
+          "title": "Songs to Fan the Flames of Discontent",
+          "year": "1996",
+          "type": "Full-length"
+        },
+        {
+          "title": "The Shape of Punk to Come",
+          "year": "1998",
+          "type": "Full-length"
+        },
+        {
+          "title": "Freedom",
+          "year": "2015",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Dennis Lyxzen", "instrument": "vocals", "period": "1992-" },
-        { "name": "Kristofer Steen", "instrument": "guitar", "period": "1994-" }
+        {
+          "name": "Dennis Lyxzen",
+          "instrument": "vocals",
+          "period": "1992-"
+        },
+        {
+          "name": "Kristofer Steen",
+          "instrument": "guitar",
+          "period": "1994-"
+        }
       ],
       "type": "Group",
       "description": "They put electronics, jazz and a manifesto into a hardcore record, split up weeks after releasing it, and watched it become the most imitated album in the genre.",
@@ -1224,17 +2648,41 @@
       "status": "Active",
       "formed": "1996",
       "disbanded": null,
-      "genre": ["celtic punk", "street punk", "Oi!"],
+      "genre": [
+        "celtic punk",
+        "street punk",
+        "Oi!"
+      ],
       "disambiguation": "Boston celtic punk band",
       "image": null,
       "albums": [
-        { "title": "Do or Die", "year": "1998", "type": "Album" },
-        { "title": "The Gang's All Here", "year": "1999", "type": "Album" },
-        { "title": "Sing Loud, Sing Proud!", "year": "2001", "type": "Album" }
+        {
+          "title": "Do or Die",
+          "year": "1998",
+          "type": "Full-length"
+        },
+        {
+          "title": "The Gang's All Here",
+          "year": "1999",
+          "type": "Full-length"
+        },
+        {
+          "title": "Sing Loud, Sing Proud!",
+          "year": "2001",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Ken Casey", "instrument": "vocals, bass", "period": "1996-" },
-        { "name": "Al Barr", "instrument": "vocals", "period": "1998-2022" }
+        {
+          "name": "Ken Casey",
+          "instrument": "vocals, bass",
+          "period": "1996-"
+        },
+        {
+          "name": "Al Barr",
+          "instrument": "vocals",
+          "period": "1998-2022"
+        }
       ],
       "type": "Group",
       "description": "Boston Oi! with bagpipes, union songs and a Woody Guthrie obsession. The one celtic punk band that filled arenas without losing the picket line.",
@@ -1248,17 +2696,40 @@
       "status": "Split-up",
       "formed": "1982",
       "disbanded": "2014",
-      "genre": ["celtic punk", "folk punk"],
+      "genre": [
+        "celtic punk",
+        "folk punk"
+      ],
       "disambiguation": "Anglo-Irish celtic punk band fronted by Shane MacGowan",
       "image": null,
       "albums": [
-        { "title": "Rum Sodomy & the Lash", "year": "1985", "type": "Album" },
-        { "title": "If I Should Fall from Grace with God", "year": "1988", "type": "Album" }
+        {
+          "title": "Rum Sodomy & the Lash",
+          "year": "1985",
+          "type": "Full-length"
+        },
+        {
+          "title": "If I Should Fall from Grace with God",
+          "year": "1988",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Shane MacGowan", "instrument": "vocals", "period": "1982-1991, 2001-2014" },
-        { "name": "Spider Stacy", "instrument": "tin whistle, vocals", "period": "1982-2014" },
-        { "name": "Jem Finer", "instrument": "banjo", "period": "1982-2014" }
+        {
+          "name": "Shane MacGowan",
+          "instrument": "vocals",
+          "period": "1982-1991, 2001-2014"
+        },
+        {
+          "name": "Spider Stacy",
+          "instrument": "tin whistle, vocals",
+          "period": "1982-2014"
+        },
+        {
+          "name": "Jem Finer",
+          "instrument": "banjo",
+          "period": "1982-2014"
+        }
       ],
       "type": "Group",
       "description": "Irish traditional music played with punk's speed and punk's self-destruction. MacGowan had been in a London punk band before deciding an accordion was more offensive.",
@@ -1272,16 +2743,36 @@
       "status": "Split-up",
       "formed": "1976",
       "disbanded": "2009",
-      "genre": ["psychobilly", "garage rock", "New York Punk"],
+      "genre": [
+        "psychobilly",
+        "garage rock",
+        "New York Punk"
+      ],
       "disambiguation": "CBGB band of Lux Interior and Poison Ivy",
       "image": null,
       "albums": [
-        { "title": "Songs the Lord Taught Us", "year": "1980", "type": "Album" },
-        { "title": "Psychedelic Jungle", "year": "1981", "type": "Album" }
+        {
+          "title": "Songs the Lord Taught Us",
+          "year": "1980",
+          "type": "Full-length"
+        },
+        {
+          "title": "Psychedelic Jungle",
+          "year": "1981",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Lux Interior", "instrument": "vocals", "period": "1976-2009" },
-        { "name": "Poison Ivy", "instrument": "guitar", "period": "1976-2009" }
+        {
+          "name": "Lux Interior",
+          "instrument": "vocals",
+          "period": "1976-2009"
+        },
+        {
+          "name": "Poison Ivy",
+          "instrument": "guitar",
+          "period": "1976-2009"
+        }
       ],
       "type": "Group",
       "description": "Rockabilly records, horror films and no bass player. They invented psychobilly almost by accident while trying to sound like 1958 heard through a broken speaker.",
@@ -1295,20 +2786,55 @@
       "status": "Active",
       "formed": "1988",
       "disbanded": null,
-      "genre": ["skate punk", "melodic hardcore"],
+      "genre": [
+        "skate punk",
+        "melodic hardcore"
+      ],
       "disambiguation": "South Bay skate punk band on Epitaph",
       "image": null,
       "albums": [
-        { "title": "Unknown Road", "year": "1993", "type": "Album" },
-        { "title": "About Time", "year": "1995", "type": "Album" },
-        { "title": "Full Circle", "year": "1997", "type": "Album" },
-        { "title": "Straight Ahead", "year": "1999", "type": "Album" }
+        {
+          "title": "Unknown Road",
+          "year": "1993",
+          "type": "Full-length"
+        },
+        {
+          "title": "About Time",
+          "year": "1995",
+          "type": "Full-length"
+        },
+        {
+          "title": "Full Circle",
+          "year": "1997",
+          "type": "Full-length"
+        },
+        {
+          "title": "Straight Ahead",
+          "year": "1999",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Jim Lindberg", "instrument": "vocals", "period": "1988-2009, 2012-" },
-        { "name": "Fletcher Dragge", "instrument": "guitar", "period": "1988-" },
-        { "name": "Byron McMackin", "instrument": "drums", "period": "1988-" },
-        { "name": "Randy Bradbury", "instrument": "bass", "period": "1996-" }
+        {
+          "name": "Jim Lindberg",
+          "instrument": "vocals",
+          "period": "1988-2009, 2012-"
+        },
+        {
+          "name": "Fletcher Dragge",
+          "instrument": "guitar",
+          "period": "1988-"
+        },
+        {
+          "name": "Byron McMackin",
+          "instrument": "drums",
+          "period": "1988-"
+        },
+        {
+          "name": "Randy Bradbury",
+          "instrument": "bass",
+          "period": "1996-"
+        }
       ],
       "type": "Group",
       "description": "Melodic hardcore from the same few streets as Black Flag and the Descendents. Bro Hymn became a funeral song for their own bass player, and then for half of punk.",
@@ -1322,16 +2848,36 @@
       "status": "Split-up",
       "formed": "1997",
       "disbanded": "2002",
-      "genre": ["screamo", "emoviolence", "post-hardcore"],
+      "genre": [
+        "screamo",
+        "emoviolence",
+        "post-hardcore"
+      ],
       "disambiguation": "Massachusetts screamo band on Ebullition",
       "image": null,
       "albums": [
-        { "title": "Chaos Is Me", "year": "1999", "type": "Album" },
-        { "title": "Gatefold", "year": "2002", "type": "Album" }
+        {
+          "title": "Chaos Is Me",
+          "year": "1999",
+          "type": "Full-length"
+        },
+        {
+          "title": "Gatefold",
+          "year": "2002",
+          "type": "Full-length"
+        }
       ],
       "members": [
-        { "name": "Jayson Green", "instrument": "vocals", "period": "1997-2002" },
-        { "name": "Will Killingsworth", "instrument": "guitar", "period": "1997-2002" }
+        {
+          "name": "Jayson Green",
+          "instrument": "vocals",
+          "period": "1997-2002"
+        },
+        {
+          "name": "Will Killingsworth",
+          "instrument": "guitar",
+          "period": "1997-2002"
+        }
       ],
       "type": "Group",
       "description": "Screamo at its most severe: thirty-second songs, critical theory on the sleeves and a singer who sounded like the tape was tearing. Five years, no compromises.",

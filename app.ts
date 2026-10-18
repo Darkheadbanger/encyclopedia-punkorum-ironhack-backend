@@ -25,6 +25,14 @@ const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
 export function createApp({ fetchImpl, retryDelayMs }: CreateAppOptions = {}) {
   const app = express();
 
+  // Render puts exactly one load balancer in front of us. Without this, req.ip
+  // is the balancer's address for EVERY visitor, so the rate limit below counts
+  // the whole internet as one person: a band page costs three requests, and the
+  // site would start answering 429 to everyone at about 33 page views a minute.
+  // 1, not true: trusting every hop would let a client forge X-Forwarded-For and
+  // pick its own bucket. Locally there is no proxy and req.ip is the socket.
+  app.set("trust proxy", 1);
+
   // Only our frontend may call this API. With cors() and no options, ANY website
   // could read it from a visitor's browser.
   app.use(cors({ origin: FRONTEND_URL }));

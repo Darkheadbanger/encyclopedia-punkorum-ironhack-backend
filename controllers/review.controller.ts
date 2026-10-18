@@ -10,6 +10,7 @@
 
 import type { Request, Response } from "express";
 import mongoose from "mongoose";
+import Band from "../models/Band.model.ts";
 import Review from "../models/Review.model.ts";
 
 // Only the username of the author is ever sent: the model hides the password hash,
@@ -19,6 +20,11 @@ const AUTHOR_FIELDS = "username";
 // The author, the id and the timestamps belong to the server. Otherwise anyone
 // could sign a review with someone else's name, which is exactly what the
 // ownership check below is meant to prevent.
+//
+// `band` survives here because createReview needs it; modifyReview drops it
+// separately. A review belongs to one band for its whole life — letting an edit
+// move it would hand a member the ability to re-aim their words at any band,
+// including one that does not exist.
 const fromClient = (body: unknown) => {
   const { id, _id, author, createdAt, updatedAt, ...data } = (body ?? {}) as Record<string, unknown>;
   return data;
@@ -66,8 +72,21 @@ export const getOneReview = async (req: Request, res: Response) => {
 };
 
 export const createReview = async (req: Request, res: Response) => {
+  // The band is read from the body here and NOWHERE ELSE: a review is about one
+  // band for its whole life, so modifyReview strips it. It also has to exist —
+  // the schema only checks that the id is an ObjectId, not that it points at
+  // anything, and a review of a band that was never there reads as "A band that
+  // is no longer here" on the page.
+  const { band: claimed, ...data } = fromClient(req.body);
+  const band = String(claimed ?? "");
+  if (!mongoose.isValidObjectId(band) || !(await Band.exists({ _id: band }))) {
+    res.status(400).json({ error: "This review is not about a band we hold." });
+    return;
+  }
+
   const review = await Review.create({
-    ...fromClient(req.body),
+    ...data,
+    band,
     author: req.payload!.id, // isAuthenticated guarantees the payload
   });
   res.status(201).json(await review.populate("author", AUTHOR_FIELDS));
@@ -86,7 +105,9 @@ export const modifyReview = async (req: Request, res: Response) => {
 
   // set() then save() rather than findByIdAndUpdate: the document is already
   // loaded for the ownership check, and save() runs the validators by default.
-  review.set(fromClient(req.body));
+  // The band is dropped: an edit changes what you said, not what you said it about.
+  const { band, ...data } = fromClient(req.body);
+  review.set(data);
   await review.save();
   res.json(await review.populate("author", AUTHOR_FIELDS));
 };

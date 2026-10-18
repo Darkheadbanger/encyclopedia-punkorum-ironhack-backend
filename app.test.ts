@@ -280,3 +280,22 @@ describe("unknown endpoints", () => {
     expect(response.body.error).toBe("Unknown endpoint.");
   });
 });
+
+// GET /bands sorts on createdAt, so a band posted with a date in 2099 would sit
+// at the top of the encyclopedia for the next seventy years.
+describe("what a client cannot set on a band", () => {
+  it("ignores a createdAt sent by the client", async () => {
+    const response = await asEditor(request(app()).post("/bands"))
+      .send(makeBand({ name: "Time Traveller", createdAt: "2099-01-01T00:00:00.000Z" }));
+
+    expect(response.status).toBe(201);
+    expect(new Date(response.body.createdAt).getFullYear()).toBe(new Date().getFullYear());
+  });
+
+  it("ignores an updatedAt sent by the client", async () => {
+    const response = await asEditor(request(app()).post("/bands"))
+      .send(makeBand({ name: "Another Traveller", updatedAt: "2099-01-01T00:00:00.000Z" }));
+
+    expect(new Date(response.body.updatedAt).getFullYear()).toBe(new Date().getFullYear());
+  });
+});

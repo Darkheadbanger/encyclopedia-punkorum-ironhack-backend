@@ -255,3 +255,68 @@ describe("DELETE /reviews/:id", () => {
     expect(response.status).toBe(404);
   });
 });
+
+// Three things the client is not allowed to decide. Each one was accepted until
+// a code review tried it.
+describe("what a review's author cannot set", () => {
+  it("refuses a review about a band that does not exist", async () => {
+    const response = await as(request(app()).post("/reviews"), authorToken)
+      .send(validReview(new mongoose.Types.ObjectId().toString()));
+
+    expect(response.status).toBe(400);
+    expect(response.body.error).toMatch(/not about a band we hold/i);
+  });
+
+  it("refuses a review whose band is not even an id", async () => {
+    const response = await as(request(app()).post("/reviews"), authorToken)
+      .send(validReview("not-an-id"));
+
+    expect(response.status).toBe(400);
+  });
+
+  // An edit changes what you said, not what you said it about.
+  it("ignores an attempt to move a review to another band", async () => {
+    const other = await new Band({ name: "Discharge" }).save();
+
+    const response = await as(request(app()).put(`/reviews/${seeded._id}`), authorToken)
+      .send({ band: other._id.toString(), rating: 3 });
+
+    expect(response.status).toBe(200);
+    expect((await Review.findById(seeded._id))!.band.toString()).toBe(band._id.toString());
+    expect((await Review.findById(seeded._id))!.rating).toBe(3); // the rest still applies
+  });
+});
+
+// A review is about a band. Deleting the band used to leave its reviews behind,
+// showing as "A band that is no longer here" on a page that offers no Delete —
+// so not even their author could get rid of them.
+describe("deleting a band takes its reviews with it", () => {
+  it("removes the reviews of the deleted band", async () => {
+    const response = await as(request(app()).delete(`/bands/${band._id}`), authorToken);
+
+    expect(response.status).toBe(204);
+    expect(await Review.countDocuments({ band: band._id })).toBe(0);
+  });
+
+  it("leaves other bands' reviews alone", async () => {
+    const other = await new Band({ name: "Discharge" }).save();
+    const survivor = await new Review({
+      ...validReview(other._id.toString()),
+      author: author._id,
+    }).save();
+
+    await as(request(app()).delete(`/bands/${band._id}`), authorToken);
+
+    expect(await Review.findById(survivor._id)).not.toBeNull();
+  });
+
+  // The band was never there, so neither were its reviews: nothing may be touched.
+  it("touches nothing when the band does not exist", async () => {
+    const response = await as(
+      request(app()).delete(`/bands/${new mongoose.Types.ObjectId()}`), authorToken
+    );
+
+    expect(response.status).toBe(404);
+    expect(await Review.countDocuments()).toBe(1);
+  });
+});
