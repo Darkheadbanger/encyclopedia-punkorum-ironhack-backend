@@ -1,0 +1,25 @@
+# Continuous integration: every push and every pull request runs the checks.
+# The tests use an in-memory MongoDB, so no database or secret is needed here.
+
+name: Tests
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22      # Node >= 22.18 runs the .ts files directly
+          cache: npm
+
+      - run: npm ci             # exact versions from package-lock.json
+      - run: npm run typecheck  # TypeScript
+      - run: npm run test:run   # Vitest + Supertest on an in-memory MongoDB
